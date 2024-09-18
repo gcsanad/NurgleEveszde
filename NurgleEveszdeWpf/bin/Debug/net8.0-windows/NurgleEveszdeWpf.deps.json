@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "NurgleEveszdeWpf/1.0.0": {
+        "runtime": {
+          "NurgleEveszdeWpf.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NurgleEveszdeWpf/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

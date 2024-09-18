@@ -11,8 +11,11 @@
 
   <ItemGroup>
     <None Remove="deadpool-dance-bye-bye-bye.gif" />
+    <None Remove="key.png" />
+    <None Remove="key_1.png" />
     <None Remove="nurgle.jpg" />
     <None Remove="Nuu.jpg" />
+    <None Remove="user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,8 +24,11 @@
 
   <ItemGroup>
     <Resource Include="deadpool-dance-bye-bye-bye.gif" />
+    <Resource Include="key.png" />
+    <Resource Include="key_1.png" />
     <Resource Include="nurgle.jpg" />
     <Resource Include="Nuu.jpg" />
+    <Resource Include="user.png" />
   </ItemGroup>
 
 </Project>
