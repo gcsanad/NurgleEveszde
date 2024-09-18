@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,13 @@ namespace NurgleEveszdeWpf
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnRegisztracio_Click(object sender, RoutedEventArgs e)
+        {
+            Window registrationWindow = new RegistrationWindow();
+            registrationWindow.Show();
+            App.Current.MainWindow.Close();
         }
     }
 }
