@@ -12,7 +12,7 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\barizs.marton.daniel\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\gajdos.csanad\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\barizs.marton.daniel\\.nuget\\packages"
     ],
     "configProperties": {

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {}
+    "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {
+    "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
+        "projectUniqueName": "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
         "projectName": "NurgleEveszdeWpf",
-        "projectPath": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
-        "packagesPath": "C:\\Users\\barizs.marton.daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\obj\\",
+        "projectPath": "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
+        "packagesPath": "C:\\Users\\gajdos.csanad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\barizs.marton.daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gajdos.csanad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
