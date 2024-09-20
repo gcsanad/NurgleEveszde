@@ -23,6 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="deadpool-dance-bye-bye-bye.gif" />
     <Resource Include="key.png" />
     <Resource Include="key_1.png" />

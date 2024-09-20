@@ -33,7 +33,7 @@
                     
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnRegisztracio" Width="100" Height="25" FontSize="13" Content="Regisztráció" Margin="0,10,25,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Click="btnRegisztracio_Click"/>
-                        <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnBejelentkezes" Width="100" Height="25" FontSize="13" Content="Bejelentkezés" Margin="0,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+                        <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnBejelentkezes" Width="100" Height="25" FontSize="13" Content="Bejelentkezés" Margin="0,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Click="btnBejelentkezes_Click"/>
 
                     </StackPanel>
 
