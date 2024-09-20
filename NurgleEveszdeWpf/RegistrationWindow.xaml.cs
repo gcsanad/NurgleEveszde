@@ -23,5 +23,12 @@ namespace NurgleEveszdeWpf
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) { 
+            
+            Window mainWin = new MainWindow();
+            mainWin.Show();
+            this.Close();
+        }
     }
 }

@@ -8,37 +8,33 @@
         Title="Nurgle Evészde" Height="500" Width="555">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Nuu.jpg"/>
+            <ImageBrush ImageSource="/dark-wood-background.jpg"/>
         </Grid.Background>
 
-        <Border BorderThickness="5" BorderBrush="Black" CornerRadius="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border BorderThickness="5" BorderBrush="Maroon" CornerRadius="4" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10">
-                    <Label Content="Nurgle Evészde" FontSize="40" VerticalAlignment="Top" Margin="0,0,0,-15" Foreground="Black"/>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10" Width="350" Height="250">
+                    <Label Content="Nurgle Evészde" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,-15" Foreground="Black"/>
                     <Label Content="Bejelentkezés" HorizontalAlignment="Center" FontSize="20" Margin="0,0,0,10" Foreground="Black"/>
 
                     
-                    <Label Content="Felhasználónév " Margin="20,0,0,-5" Foreground="Black"/>
-                    <StackPanel Orientation="Horizontal">
+                    <Label Content="Felhasználónév " Margin="50,0,0,-5" Foreground="Black"/>
+                    <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
                         <Image Source="/user.png" Width="20" Height="20"/>
                         <TextBox Style="{DynamicResource TextBoxStyleTextBox}" x:Name="txtUsernameInput" Text="" FontSize="12" Height="20" Width="250"/>
                     </StackPanel>
 
-                    <Label Content="Jelszó" Margin="20,0,0,-5" Foreground="Black"/>
+                    <Label Content="Jelszó" Margin="50,0,0,-5" Foreground="Black"/>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/key_1.png" Width="20" Height="20"/>
+                        <Image Source="/key_1.png" Width="20" Height="20" Margin="30,0,0,0"/>
                         <PasswordBox Style="{DynamicResource PasswordBoxStylePasswordBox}" x:Name="txtPasswordInput" FontSize="12" Height="20" Width="250"/>
                     </StackPanel>
 
-                    
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0">
                         <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnRegisztracio" Width="100" Height="25" FontSize="13" Content="Regisztráció" Margin="0,10,25,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Click="btnRegisztracio_Click"/>
                         <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnBejelentkezes" Width="100" Height="25" FontSize="13" Content="Bejelentkezés" Margin="0,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-
                     </StackPanel>
-
-
-
                 </StackPanel>
             </StackPanel>
         </Border>
