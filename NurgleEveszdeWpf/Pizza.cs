@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace NurgleEveszdeWpf
 {
@@ -24,10 +25,17 @@ namespace NurgleEveszdeWpf
             this.imageName = tomb[3];
         }
 
-        public Pizza(string szam) 
+        public Pizza(string nev) 
         {
-            this.Content = szam;
-            this.Background = Brushes.LightCoral;
+
+            BitmapImage bitimg = new BitmapImage();
+            bitimg.BeginInit();
+            bitimg.UriSource = new Uri(@$".\\pizzaKepek\\{nev}", UriKind.RelativeOrAbsolute);
+            bitimg.EndInit();
+            this.Width = 50;
+            this.Height = 50;
+            this.Background = new ImageBrush(bitimg);
+            this.imageName = nev;
         }
 
         public string Name => name;
