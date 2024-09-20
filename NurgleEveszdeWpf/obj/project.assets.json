@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\barizs.marton.daniel\\.nuget\\packages\\": {}
+    "C:\\Users\\beke.tamas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
+      "projectUniqueName": "C:\\Users\\beke.tamas\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
       "projectName": "NurgleEveszdeWpf",
-      "projectPath": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
-      "packagesPath": "C:\\Users\\barizs.marton.daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\obj\\",
+      "projectPath": "C:\\Users\\beke.tamas\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
+      "packagesPath": "C:\\Users\\beke.tamas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\beke.tamas\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\barizs.marton.daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\beke.tamas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

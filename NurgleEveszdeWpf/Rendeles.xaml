@@ -1,0 +1,103 @@
+﻿<Window x:Class="NurgleEveszdeWpf.Rendeles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NurgleEveszdeWpf"
+        mc:Ignorable="d"
+        Title="Rendeles" Height="500" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListBox Width="800"
+                 Height="130"
+                 FontSize="20"
+                 FlowDirection="LeftToRight"
+                 HorizontalContentAlignment="Left"
+                 Padding=" 0 50 0 0"
+                 x:Name="lbPizzak"
+                 Grid.ColumnSpan="3">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
+        <StackPanel Grid.Row="1">
+            <Label Grid.Row="1"
+               Width="100"
+               Height="50"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               FontSize="20"
+               VerticalContentAlignment="Center">Telefonszám:</Label>
+            <TextBox Width="170"
+                     Height="50"
+                     HorizontalAlignment="Left"
+                     VerticalContentAlignment="Center"></TextBox>
+            <Label Grid.Row="1"
+               Width="135"
+               Height="50"
+               HorizontalAlignment="Left"
+               FontSize="20"
+               VerticalContentAlignment="Center">Lakcím:</Label>
+            <TextBox Width="220"
+                     Height="50"
+                     HorizontalAlignment="Left"
+                     VerticalContentAlignment="Center"></TextBox>
+            <Label Grid.Row="1"
+               Width="135"
+               Height="50"
+               HorizontalAlignment="Left"
+               FontSize="20"
+               VerticalContentAlignment="Center">Megjegyzés:</Label>
+            <TextBox Width="260"
+                     Height="50"
+                     HorizontalAlignment="Left"
+                     VerticalContentAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1">
+            <Button Width="100"
+                    Height="50"
+                    FontSize="20"
+                    Content="Rendel"
+                    Margin="0 250 0 0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2">
+            <ListBox x:Name="lbKosar"
+                     Height="130"></ListBox>
+            <Label x:Name="lblAr"
+                   Height="50"
+                   Margin="0 20 0 0"
+                   FontSize="20"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center">Fizetendő összeg: 0 Ft</Label>
+            <Label x:Name="lblTip"
+                   Height="40"
+                   Margin="0 10 0 0"
+                   FontSize="20"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center">Tip:</Label>
+            <TextBox x:Name="tbTip"
+                     Height="50"
+                    Margin="0 0 0 0"
+                    FontSize="20"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center">
+                
+            </TextBox>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -20,6 +20,12 @@ namespace NurgleEveszdeWpf
         public MainWindow()
         {
             InitializeComponent();
+            btnBejelentkezes.Click += (s, e) =>
+            {
+                Rendeles rendeles = new Rendeles();
+                this.Close();
+                rendeles.ShowDialog();
+            };
         }
 
         private void btnRegisztracio_Click(object sender, RoutedEventArgs e)
