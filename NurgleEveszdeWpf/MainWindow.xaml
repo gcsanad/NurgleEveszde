@@ -5,26 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NurgleEveszdeWpf"
         mc:Ignorable="d"
-        Title="Nurgle Evészde" Height="500" Width="555">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/dark-wood-background.jpg"/>
-        </Grid.Background>
+        ResizeMode="NoResize"
+        Title="Nurgle Evészde" Height="300" Width="400">
+    <Grid Background="#525252">
 
-        <Border BorderThickness="5" BorderBrush="Maroon" CornerRadius="4" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10" Width="350" Height="250">
-                    <Label Content="Nurgle Evészde" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,-15" Foreground="Black"/>
-                    <Label Content="Bejelentkezés" HorizontalAlignment="Center" FontSize="20" Margin="0,0,0,10" Foreground="Black"/>
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="5" Width="350" Height="250" VerticalAlignment="Center">
+            <StackPanel Background="#414141"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Width="350" Height="250">
+                <StackPanel Orientation="Vertical"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="10" Width="350"
+                Height="250">
+                    <Label Content="Nurgle Evészde"
+               FontSize="40"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,-15"
+               Foreground="#CA3E47"/>
+                    <Label Content="Bejelentkezés"
+               HorizontalAlignment="Center"
+               FontSize="20" Margin="0,0,0,10" Foreground="#CA3E47"/>
 
-                    
-                    <Label Content="Felhasználónév " Margin="50,0,0,-5" Foreground="Black"/>
+
+                    <Label Content="Felhasználónév " Margin="50,0,0,-5" Foreground="#CA3E47"/>
                     <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
                         <Image Source="/user.png" Width="20" Height="20"/>
                         <TextBox Style="{DynamicResource TextBoxStyleTextBox}" x:Name="txtUsernameInput" Text="" FontSize="12" Height="20" Width="250"/>
                     </StackPanel>
 
-                    <Label Content="Jelszó" Margin="50,0,0,-5" Foreground="Black"/>
+                    <Label Content="Jelszó" Margin="50,0,0,-5" Foreground="#CA3E47"/>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/key_1.png" Width="20" Height="20" Margin="30,0,0,0"/>
                         <PasswordBox Style="{DynamicResource PasswordBoxStylePasswordBox}" x:Name="txtPasswordInput" FontSize="12" Height="20" Width="250"/>
@@ -37,7 +49,12 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
+            
         </Border>
+        <!--<Border BorderBrush="Black" BorderThickness="2" Width="200" Height="222" VerticalAlignment="Bottom">
+            <MediaElement Control.MouseDoubleClick="media_MouseDoubleClick" x:Name="media" LoadedBehavior="Play" Stretch="Fill" MediaEnded="PlayagainGIF" Source="/deadpool-dance-bye-bye-bye.gif"  Margin="0,0,0,25"/>
+        </Border>-->
+        
 
 
     </Grid>

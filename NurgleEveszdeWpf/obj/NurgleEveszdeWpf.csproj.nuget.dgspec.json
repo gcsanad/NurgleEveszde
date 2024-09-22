@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {}
+    "D:\\!Suli\\!PROJEKTEK\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {
+    "D:\\!Suli\\!PROJEKTEK\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
+        "projectUniqueName": "D:\\!Suli\\!PROJEKTEK\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
         "projectName": "NurgleEveszdeWpf",
-        "projectPath": "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
-        "packagesPath": "C:\\Users\\gajdos.csanad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gajdos.csanad\\source\\repos\\gcsanad\\NurgleEveszde\\NurgleEveszdeWpf\\obj\\",
+        "projectPath": "D:\\!Suli\\!PROJEKTEK\\NurgleEveszde\\NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj",
+        "packagesPath": "C:\\Users\\Marci\\.nuget\\packages\\",
+        "outputPath": "D:\\!Suli\\!PROJEKTEK\\NurgleEveszde\\NurgleEveszdeWpf\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\gajdos.csanad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Marci\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
