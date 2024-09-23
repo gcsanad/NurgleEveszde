@@ -39,8 +39,10 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
-                            <Label Content="Telefonszám" Margin="0,0,0,-5" FontSize="15" Foreground="#6EC207"/>
-                            <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtMobile" HorizontalAlignment="Left"/>
+
+                            <Label Content="Telefonszám" Margin="0,0,0,-5" FontSize="15" Foreground="#CA3E47"/>
+                            <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtMobile" HorizontalAlignment="Left" MaxLength="12"/>
+
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0">
@@ -56,12 +58,14 @@
                         <StackPanel Orientation="Vertical" Grid.Row="5" Grid.Column="0">
                             <Label Content="Fiók típusa" FontSize="15" Foreground="#6EC207"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <RadioButton Style="{DynamicResource RadioButtonStyleRegistration}" x:Name="rdUser" Content="Felhasználó" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-20,0,30,0" Foreground="#6EC207"/>
-                                <RadioButton Style="{DynamicResource RadioButtonStyleRegistration}" x:Name="rdAdmin" Content="Admin" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#6EC207"/>
+
+                                <RadioButton Style="{DynamicResource RadioButtonStyleRegistration}" x:Name="rdUser" Content="Felhasználó" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-20,0,30,0" Foreground="#CA3E47" IsChecked="True"/>
+                                <RadioButton Style="{DynamicResource RadioButtonStyleRegistration}" x:Name="rdAdmin" Content="Admin" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#CA3E47"/>
                             </StackPanel>
                         </StackPanel>
 
-                        <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnRegister" Content="Regisztráció" Height="28" Width="110" Grid.Row="6" Grid.Column="0" FontSize="15" Foreground="#6EC207"/>
+                        <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnRegister" Content="Regisztráció" Height="28" Width="110" Grid.Row="6" Grid.Column="0" FontSize="15" Foreground="#CA3E47" Margin="70,0,70,0" VerticalAlignment="Top" Click="btnRegister_Click"/>
+
 
                         <Border Grid.Column="1" Grid.RowSpan="6" CornerRadius="20" BorderThickness="2" BorderBrush="Transparent" Height="300" Width="300" Margin="0,50,0,0" Panel.ZIndex="0">
                             <Border.Background>

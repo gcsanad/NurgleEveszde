@@ -29,15 +29,28 @@ namespace NurgleEveszdeWpf
         {
             InitializeComponent();
             loadUsers();
+            txtPasswordInput.KeyDown += new KeyEventHandler(input_KeyDown);
+            txtUsernameInput.KeyDown += new KeyEventHandler(input_KeyDown);
 
         }
 
+        private void input_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                checkUser();
+            }
+        }
+
+        
         private void btnRegisztracio_Click(object sender, RoutedEventArgs e)
         {
             Window registrationWindow = new RegistrationWindow();
             registrationWindow.Show();
             this.Close();
         }
+        
+        
 
         private void loadUsers()
         {
