@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NurgleEveszdeWpf"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Nurgle Evészde" Height="300" Width="400">
+        Title="Nurgle Evészde" Height="300" Width="400" WindowStartupLocation="CenterScreen">
     <Grid Background="#525252">
 
         <Border BorderBrush="Black" BorderThickness="2" CornerRadius="5" Width="350" Height="250" VerticalAlignment="Center">

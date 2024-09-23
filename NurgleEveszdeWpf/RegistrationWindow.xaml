@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NurgleEveszdeWpf"
         mc:Ignorable="d"
-        Title="RegistrationWindow" Height="500" Width="850" Background="#525252">
+        Title="RegistrationWindow" Height="500" Width="850" Background="#525252" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Border BorderThickness="5" BorderBrush="Black" CornerRadius="4" VerticalAlignment="Center" HorizontalAlignment="Center">
