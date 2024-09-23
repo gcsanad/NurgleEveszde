@@ -5,26 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NurgleEveszdeWpf"
         mc:Ignorable="d"
-               Title="Rendeles" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+               Title="Rendeles" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized" Background="#525252">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="720"/>
         </Grid.ColumnDefinitions>
-        <ListBox Width="800"
-                 Height="130"
-                 FontSize="20"
+        <ListBox FontSize="20"
                  FlowDirection="LeftToRight"
                  HorizontalContentAlignment="Left"
                  Padding=" 0 50 0 0"
                  x:Name="lbPizzak"
-                 Grid.ColumnSpan="3">
+                 Grid.Row="0"
+                 Grid.Column="0"
+                 Grid.RowSpan="2" Background="Gray" BorderBrush="Black" BorderThickness="2"
+                 Margin="15">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel IsItemsHost="True" />
@@ -32,64 +33,64 @@
             </ListBox.ItemsPanel>
         </ListBox>
 
-        <StackPanel Grid.Row="1">
-            <Label Grid.Row="1"
-               Width="100"
+        <ListBox x:Name="lbKosar" Background="DarkGray" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Margin="15" BorderBrush="Black" BorderThickness="2"></ListBox>
+
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <Label
+               Width="130"
                Height="50"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                FontSize="20"
-               VerticalContentAlignment="Center">Telefonszám:</Label>
-            <TextBox Width="170"
+               VerticalContentAlignment="Center" Foreground="#6EC207">Telefonszám:</Label>
+            <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Foreground="white" Width="170"
                      Height="50"
                      HorizontalAlignment="Left"
                      VerticalContentAlignment="Center"></TextBox>
-            <Label Grid.Row="1"
+            <Label Grid.Row="1" Foreground="#6EC207"
                Width="135"
                Height="50"
                HorizontalAlignment="Left"
                FontSize="20"
                VerticalContentAlignment="Center">Lakcím:</Label>
-            <TextBox Width="220"
+            <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Foreground="white" Width="220"
                      Height="50"
                      HorizontalAlignment="Left"
-                     VerticalContentAlignment="Center"></TextBox>
+                     VerticalContentAlignment="Center"></TextBox >
             <Label Grid.Row="1"
-               Width="135"
+               Width="135" Foreground="#6EC207"
                Height="50"
                HorizontalAlignment="Left"
                FontSize="20"
                VerticalContentAlignment="Center">Megjegyzés:</Label>
-            <TextBox Width="260"
+            <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Foreground="white" Width="260"
                      Height="50"
                      HorizontalAlignment="Left"
                      VerticalContentAlignment="Center"></TextBox>
         </StackPanel>
-        <StackPanel Grid.Row="1"
-                    Grid.Column="1">
-            <Button Width="100"
-                    Height="50"
-                    FontSize="20"
-                    Content="Rendel"
-                    Margin="0 250 0 0"/>
-        </StackPanel>
+        
         <StackPanel Grid.Row="1"
                     Grid.Column="2">
-            <ListBox x:Name="lbKosar"
-                     Height="130"></ListBox>
+
+            <Button Width="100" Style="{DynamicResource ButtonStyleLogIn}"
+        Height="50"
+        FontSize="20"
+        Content="Rendel"
+        Margin="0 0 0 0" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+
             <Label x:Name="lblAr"
                    Height="50"
-                   Margin="0 20 0 0"
+                   Margin="0 20 0 0" Foreground="#6EC207"
                    FontSize="20"
                    VerticalContentAlignment="Center"
                    HorizontalContentAlignment="Center">Fizetendő összeg: 0 Ft</Label>
             <Label x:Name="lblTip"
-                   Height="40"
+                   Height="40" Foreground="#6EC207"
                    Margin="0 10 0 0"
                    FontSize="20"
                    VerticalContentAlignment="Center"
                    HorizontalContentAlignment="Center">Tip:</Label>
-            <TextBox x:Name="tbTip"
+            <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Foreground="white" x:Name="tbTip"
                      Height="50"
                     Margin="0 0 0 0"
                     FontSize="20"

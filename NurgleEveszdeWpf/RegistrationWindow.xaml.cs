@@ -111,7 +111,7 @@ namespace NurgleEveszdeWpf
              nev = txtName.Text;
              email = txtEmail.Text;
              cim = txtAddress.Text;
-             jelszo = txtPassword.Password;
+             jelszo = txtPassword.Text;
              telefon = txtMobile.Text;
             string emailPattern = @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$";
             List<string> nevek = new();
