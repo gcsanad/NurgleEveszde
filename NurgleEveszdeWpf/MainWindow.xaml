@@ -24,19 +24,19 @@
                VerticalAlignment="Top"
                HorizontalAlignment="Center"
                Margin="0,0,0,-15"
-               Foreground="#CA3E47"/>
+               Foreground="#6EC207"/>
                     <Label Content="Bejelentkezés"
                HorizontalAlignment="Center"
-               FontSize="20" Margin="0,0,0,10" Foreground="#CA3E47"/>
+               FontSize="20" Margin="0,0,0,10" Foreground="#6EC207"/>
 
 
-                    <Label Content="Felhasználónév " Margin="50,0,0,-5" Foreground="#CA3E47"/>
+                    <Label Content="Felhasználónév " Margin="50,0,0,-5" Foreground="#6EC207"/>
                     <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
                         <Image Source="/user.png" Width="20" Height="20"/>
                         <TextBox Style="{DynamicResource TextBoxStyleTextBox}" x:Name="txtUsernameInput" Text="" FontSize="12" Height="20" Width="250"/>
                     </StackPanel>
 
-                    <Label Content="Jelszó" Margin="50,0,0,-5" Foreground="#CA3E47"/>
+                    <Label Content="Jelszó" Margin="50,0,0,-5" Foreground="#6EC207"/>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/key_1.png" Width="20" Height="20" Margin="30,0,0,0"/>
                         <PasswordBox Style="{DynamicResource PasswordBoxStylePasswordBox}" x:Name="txtPasswordInput" FontSize="12" Height="20" Width="250"/>
