@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NurgleEveszdeWpf"
         mc:Ignorable="d"
-               Title="Rendeles" Height="500" Width="800">
+               Title="Rendeles" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"></RowDefinition>

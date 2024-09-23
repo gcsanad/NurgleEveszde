@@ -45,10 +45,10 @@
         <SolidColorBrush x:Key="RadioButton.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="RadioButton.Static.Glyph" Color="white"/>
         <SolidColorBrush x:Key="RadioButton.MouseOver.Background" Color="#313131"/>
-        <SolidColorBrush x:Key="RadioButton.MouseOver.Border" Color="DarkRed"/>
+        <SolidColorBrush x:Key="RadioButton.MouseOver.Border" Color="#6EC207"/>
         <SolidColorBrush x:Key="RadioButton.MouseOver.Glyph" Color="white"/>
         <SolidColorBrush x:Key="RadioButton.Pressed.Background" Color="#313131"/>
-        <SolidColorBrush x:Key="RadioButton.Pressed.Border" Color="Maroon"/>
+        <SolidColorBrush x:Key="RadioButton.Pressed.Border" Color="#6EC207"/>
         <SolidColorBrush x:Key="RadioButton.Pressed.Glyph" Color="white"/>
         <SolidColorBrush x:Key="RadioButton.Disabled.Background" Color="#313131"/>
         <SolidColorBrush x:Key="RadioButton.Disabled.Border" Color="#FFBCBCBC"/>
@@ -248,8 +248,8 @@
         <Style x:Key="ButtonStyleLogIn" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="#313131"/>
-            <Setter Property="BorderBrush" Value="#CA3E47"/>
-            <Setter Property="Foreground" Value="#CA3E47"/>
+            <Setter Property="BorderBrush" Value="#6EC207"/>
+            <Setter Property="Foreground" Value="#6EC207"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -265,10 +265,10 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="darkred"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#6EC207"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="maroon"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#6EC207"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -21,17 +22,33 @@ namespace NurgleEveszdeWpf
     /// </summary>
     public partial class Rendeles : Window
     {
+        public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
+        private MySqlConnection connection;
         public Rendeles()
         {
             InitializeComponent();
-            ObservableCollection<Pizza> kosar = new();
-            List<string> pizzak = File.ReadAllLines("teszt.txt").Select(x => x).ToList();
+            ObservableCollection<Pizza> kosar = [];
+            ObservableCollection<Pizza> pizzak = [];
             lbKosar.ItemsSource = kosar;
-            for (int i = 0; i < pizzak.Count; i++)
+            try
             {
-                var pizza = new Pizza(pizzak[i]);
-                lbPizzak.Items.Add(pizza);
+                connection = new MySqlConnection(connectionString);
+                connection.Open();
+                string lekerdezesSzoveg = "SELECT * FROM foods";
+                MySqlCommand lekerdezes = new(lekerdezesSzoveg, connection);
+                lekerdezes.CommandTimeout = 60;
+                MySqlDataReader reader = lekerdezes.ExecuteReader();
+                while (reader.Read())
+                    pizzak.Add(new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)}".Split(";")));
 
+                reader.Close();
+                connection.Close();
+                lbPizzak.ItemsSource = pizzak;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
             }
             for (int i = 0; i < lbPizzak.Items.Count; i++)
             {
