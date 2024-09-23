@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NurgleEveszdeWpf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9598c8387d093bab24250843f30581d8a13b46ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b699d797add480491935358dafc284e9e7dd1fdb")]
 [assembly: System.Reflection.AssemblyProductAttribute("NurgleEveszdeWpf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NurgleEveszdeWpf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
