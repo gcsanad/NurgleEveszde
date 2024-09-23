@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NurgleEveszdeWpf"
         mc:Ignorable="d"
-        Title="RegistrationWindow" Height="500" Width="850" Background="#525252">
+        Title="RegistrationWindow" Height="500" Width="850" Background="#525252" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Border BorderThickness="5" BorderBrush="Black" CornerRadius="4" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -29,39 +29,43 @@
                         </Grid.ColumnDefinitions>
                         
                         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-                            <Label Content="Felhasználónév" Margin="0,0,0,-5" FontSize="15" Foreground="#CA3E47" />
+                            <Label Content="Felhasználónév" Margin="0,0,0,-5" FontSize="15" Foreground="#6EC207" />
                             <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtName" HorizontalAlignment="Left"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
-                            <Label Content="Jelszó" Margin="0,0,0,-5" FontSize="15" Foreground="#CA3E47"/>
-                            <PasswordBox Style="{DynamicResource PasswordBoxStylePasswordBox}" Width="250" Height="20" x:Name="txtPassword" HorizontalAlignment="Left"/>
+                            <Label Content="Jelszó" Margin="0,0,0,-5" FontSize="15" Foreground="#6EC207"/>
+                            <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtPassword" HorizontalAlignment="Left"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
+
                             <Label Content="Telefonszám" Margin="0,0,0,-5" FontSize="15" Foreground="#CA3E47"/>
                             <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtMobile" HorizontalAlignment="Left" MaxLength="12"/>
+
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0">
-                            <Label Content="Email cím" Margin="0,0,0,-5" FontSize="15" Foreground="#CA3E47"/>
+                            <Label Content="Email cím" Margin="0,0,0,-5" FontSize="15" Foreground="#6EC207"/>
                             <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtEmail" HorizontalAlignment="Left"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0">
-                            <Label Content="Kiszállítási cím" Margin="0,0,0,-5" FontSize="15" Foreground="#CA3E47"/>
+                            <Label Content="Kiszállítási cím" Margin="0,0,0,-5" FontSize="15" Foreground="#6EC207"/>
                             <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtAddress" HorizontalAlignment="Left"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Grid.Row="5" Grid.Column="0">
-                            <Label Content="Fiók típusa" FontSize="15" Foreground="#CA3E47"/>
+                            <Label Content="Fiók típusa" FontSize="15" Foreground="#6EC207"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
                                 <RadioButton Style="{DynamicResource RadioButtonStyleRegistration}" x:Name="rdUser" Content="Felhasználó" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-20,0,30,0" Foreground="#CA3E47" IsChecked="True"/>
                                 <RadioButton Style="{DynamicResource RadioButtonStyleRegistration}" x:Name="rdAdmin" Content="Admin" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#CA3E47"/>
                             </StackPanel>
                         </StackPanel>
 
                         <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="btnRegister" Content="Regisztráció" Height="28" Width="110" Grid.Row="6" Grid.Column="0" FontSize="15" Foreground="#CA3E47" Margin="70,0,70,0" VerticalAlignment="Top" Click="btnRegister_Click"/>
+
 
                         <Border Grid.Column="1" Grid.RowSpan="6" CornerRadius="20" BorderThickness="2" BorderBrush="Transparent" Height="300" Width="300" Margin="0,50,0,0" Panel.ZIndex="0">
                             <Border.Background>
