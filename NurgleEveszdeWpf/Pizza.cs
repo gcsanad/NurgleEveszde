@@ -11,6 +11,7 @@ namespace NurgleEveszdeWpf
 {
     internal class Pizza : Button
     {
+        int id;
         string name;
         string ingredients;
         int ar;
@@ -18,15 +19,22 @@ namespace NurgleEveszdeWpf
 
         public Pizza(string[] tomb)
         {
-            this.name = tomb[0];
-            this.ingredients = tomb[1];
-            this.ar = int.Parse(tomb[2]);
-            this.imageName = tomb[3];
+            this.id = int.Parse(tomb[0]);
+            this.name = tomb[1];
+            this.ingredients = tomb[2];
+            this.ar = int.Parse(tomb[3]);
+            this.imageName = tomb[4];
+            Kepek(tomb[4]);
         }
 
         public Pizza(string nev)
         {
 
+            Kepek(nev);
+        }
+
+        public void Kepek(string nev)
+        {
             BitmapImage bitimg = new BitmapImage();
             bitimg.BeginInit();
             bitimg.UriSource = new Uri(@$".\\pizzaKepek\\{nev}", UriKind.RelativeOrAbsolute);
@@ -37,6 +45,7 @@ namespace NurgleEveszdeWpf
             this.imageName = nev;
         }
 
+        public int Id => id;
         public string Name => name;
         public string Ingredients => ingredients;
         public int Ar => ar;
