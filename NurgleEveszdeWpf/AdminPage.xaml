@@ -17,7 +17,6 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dgAlapanyagok">
-            <DataGridDetailsPresenter></DataGridDetailsPresenter>
         </DataGrid>
         
     </Grid>
