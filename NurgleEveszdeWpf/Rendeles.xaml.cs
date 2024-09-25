@@ -24,6 +24,7 @@ namespace NurgleEveszdeWpf
     {
         public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
         private MySqlConnection connection;
+        int ar = 0;
         public Rendeles()
         {
             InitializeComponent();
@@ -62,13 +63,15 @@ namespace NurgleEveszdeWpf
                             Pizza masolat = new Pizza((s as Pizza).ImageName.ToString());
                             masolat.Click += (s, e) => kosar.Remove(s as Pizza);
                             kosar.Add(masolat);
-
+                            ar += (s as Pizza).Ar;
+                            lblAr.Content = $"Fizetendő összeg: {ar} Ft";
                         }
                     };
 
                 }
             }
         }
+
 
     }
 }

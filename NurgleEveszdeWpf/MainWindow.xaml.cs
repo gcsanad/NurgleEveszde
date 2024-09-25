@@ -83,7 +83,6 @@ namespace NurgleEveszdeWpf
         {
             bool vanNev = false;
             bool vanJelszo = false;
-            bool isAdmin = false;
             foreach (var user in users)
             {
                 if (user.username == txtUsernameInput.Text && user.password == txtPasswordInput.Password)
@@ -109,15 +108,8 @@ namespace NurgleEveszdeWpf
                     break;
 
                 }
-            }
-            if (isAdmin)
-            {
-                Console.WriteLine("megnyilik");
-                AdminPage admin = new AdminPage();
-                this.Close();
-                admin.Show();
-            }
-            else if (vanNev && vanJelszo)
+            if (vanNev && vanJelszo)
+
             {
                 Rendeles rendeles = new Rendeles();
                 this.Close();
@@ -141,6 +133,7 @@ namespace NurgleEveszdeWpf
 
         private void btnBejelentkezes_Click(object sender, RoutedEventArgs e)
         {
+           
             checkUser();
 
         }

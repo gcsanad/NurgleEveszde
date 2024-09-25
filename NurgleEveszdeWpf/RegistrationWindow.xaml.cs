@@ -43,14 +43,12 @@ namespace NurgleEveszdeWpf
         private void Button_Click(object sender, RoutedEventArgs e) {
 
             
-            checkRegistration();
-            if (!vanHiba)
-            {
-                userUpload();
+        
+           
                 Window mainWin = new MainWindow();
                 mainWin.Show();
                 this.Close();
-            }
+           
 
 
         }
@@ -59,22 +57,33 @@ namespace NurgleEveszdeWpf
         {
             try
             {
-                connection = new MySqlConnection(connectionString);
-                connection.Open();
-                string lekerdezesSzoveg = $"INSERT INTO `accounts`(`Username`, `Password`, `Mobil`, `Email`, `Address`, `Status`) VALUES ({nev},{jelszo},{telefon},{email},{cim},{status})";
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
 
-                MySqlCommand lekerdezes = new MySqlCommand(lekerdezesSzoveg, connection);
-                lekerdezes.CommandTimeout = 60;
-                lekerdezes.ExecuteReader();
-                
-                
-                connection.Close();
+                    string lekerdezesSzoveg = "INSERT INTO `accounts`(`Username`, `Password`, `Mobil`, `Email`, `Address`, `Status`) VALUES (@nev, @jelszo, @telefon, @email, @cim, @status)";
+
+                    using (var lekerdezes = new MySqlCommand(lekerdezesSzoveg, connection))
+                    {
+                        lekerdezes.CommandTimeout = 60;
+
+                        // Paraméterek hozzáadása
+                        lekerdezes.Parameters.AddWithValue("@nev", nev);
+                        lekerdezes.Parameters.AddWithValue("@jelszo", jelszo);
+                        lekerdezes.Parameters.AddWithValue("@telefon", telefon);
+                        lekerdezes.Parameters.AddWithValue("@email", email);
+                        lekerdezes.Parameters.AddWithValue("@cim", cim);
+                        lekerdezes.Parameters.AddWithValue("@status", status);
+
+                        lekerdezes.ExecuteNonQuery();
+                    }
+                }
 
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
         }
 
@@ -188,6 +197,7 @@ namespace NurgleEveszdeWpf
             checkRegistration();
             if (!vanHiba)
             {
+                userUpload();
                 Window mainWin = new MainWindow();
                 mainWin.Show();
                 this.Close();
