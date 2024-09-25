@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Sze 18. 11:15
+-- Létrehozás ideje: 2024. Sze 20. 11:37
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `nerdleeveszde`
 --
+
+DELIMITER $$
+--
+-- Függvények
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculate_cost` (`food_id` INT, `number` INT) RETURNS INT(11) DETERMINISTIC BEGIN
+    DECLARE food_cost INT;
+    -- Kiválasztjuk az étel árát a food_id alapján
+    SELECT Cost INTO food_cost FROM foods WHERE Food_Id = food_id;
+    -- Az összes költséget visszaadjuk a számolás után
+    RETURN food_cost * number;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -77,39 +91,40 @@ CREATE TABLE `foods` (
   `Food_Id` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `Ingredients` varchar(255) NOT NULL,
-  `Cost` int(11) NOT NULL
+  `Cost` int(11) NOT NULL,
+  `Img_Name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `foods`
 --
 
-INSERT INTO `foods` (`Food_Id`, `Name`, `Ingredients`, `Cost`) VALUES
-(1, 'Hagyományos Margherita', 'paradicsomos_alap-mozzarella-friss_bazsalikom', 1500),
-(2, 'Szalámi Kedvenc', 'paradicsomos_alap-mozzarella-szalámi-olívabogyó', 1800),
-(3, 'Bacon Varázs', 'paradicsomos_alap-mozzarella-bacon-hagyma', 1900),
-(4, 'Zöldséges Élvezet', 'paradicsomos_alap-mozzarella-paprika-gomba-cukkini', 1600),
-(5, 'Sonka és Ananász', 'paradicsomos_alap-mozzarella-sonka-ananász', 1700),
-(6, 'Fűszeres Csirke', 'paradicsomos_alap-mozzarella-csirke-fűszerkeverék', 2000),
-(7, 'Tenger Gyümölcsei', 'paradicsomos_alap-mozzarella-rák-kagyló-gyöngyösi_hagyma', 2500),
-(8, 'Gombás Különlegesség', 'paradicsomos_alap-mozzarella-gomba-olívabogyó', 1750),
-(9, 'Füstölt Lazac', 'tejfölös_alap-mozzarella-füstölt_lazac-hagyma-kapribogyó', 2400),
-(10, 'Chili Extravaganza', 'paradicsomos_alap-mozzarella-szalámi-chili-paprika', 1900),
-(11, 'Klasszikus Quattro Stagioni', 'paradicsomos_alap-mozzarella-sonka-gomba-olívabogyó-articsóka', 2200),
-(12, 'Vegán Kaland', 'paradicsomos_alap-növényi_sajtszósz-zöldségek', 1600),
-(13, 'Kéksajtos Élvezet', 'tejfölös_alap-mozzarella-kéksajt-dió-pezsgő-gyümölcs', 2300),
-(14, 'Pikáns Kolbász', 'paradicsomos_alap-mozzarella-pikáns_kolbász-hagyma', 2000),
-(15, 'Fokhagymás Rák', 'tejfölös_alap-mozzarella-fokhagyma-rák-kapribogyó', 2500),
-(16, 'Mushroom Delight', 'paradicsomos_alap-mozzarella-varázsgomba-hagyma', 1900),
-(17, 'Túró és Sonka', 'tejfölös_alap-mozzarella-túró-sonka-friss_hagyma', 1800),
-(18, 'Diós Különlegesség', 'tejfölös_alap-mozzarella-dió-kéksajt', 2400),
-(19, 'Kapros Tejfölös', 'tejfölös_alap-mozzarella-kapros_tejföl-hagyma', 1700),
-(20, 'Sörös Húsimádó', 'paradicsomos_alap-mozzarella-sörben_pácolt_hús', 2100),
-(21, 'Pikáns Tölteni Való', 'paradicsomos_alap-mozzarella-pikáns_töltelék', 2000),
-(22, 'Kecskesajtos Különlegesség', 'tejfölös_alap-mozzarella-kecskesajt-olívabogyó', 2300),
-(23, 'Sütőtökös Csoda', 'tejfölös_alap-mozzarella-sütőtök-pisztráng', 2100),
-(24, 'Csemege Csemege', 'paradicsomos_alap-mozzarella-csemege_ízek', 1900),
-(25, 'Halas Téli Álmok', 'tejfölös_alap-mozzarella-halas_töltelék', 2500);
+INSERT INTO `foods` (`Food_Id`, `Name`, `Ingredients`, `Cost`, `Img_Name`) VALUES
+(1, 'Hagyományos Margherita', 'paradicsomos_alap-mozzarella-friss_bazsalikom', 1500, 'margherita.jpg'),
+(2, 'Szalámi Kedvenc', 'paradicsomos_alap-mozzarella-szalámi-olívabogyó', 1800, 'szalami.jpg'),
+(3, 'Bacon Varázs', 'paradicsomos_alap-mozzarella-bacon-hagyma', 1900, 'baconos.jpg'),
+(4, 'Zöldséges Élvezet', 'paradicsomos_alap-mozzarella-paprika-gomba-cukkini', 1600, 'zoldsegg.jpg'),
+(5, 'Sonka és Ananász', 'paradicsomos_alap-mozzarella-sonka-ananász', 1700, 'anan.jpg'),
+(6, 'Fűszeres Csirke', 'paradicsomos_alap-mozzarella-csirke-fűszerkeverék', 2000, 'fuszeresCsirke.jpg'),
+(7, 'Tenger Gyümölcsei', 'paradicsomos_alap-mozzarella-rák-kagyló-gyöngyösi_hagyma', 2500, 'tengerGyumolcs.jpg'),
+(8, 'Gombás Különlegesség', 'paradicsomos_alap-mozzarella-gomba-olívabogyó', 1750, 'gombasOlivas.jpg'),
+(9, 'Füstölt Lazac', 'tejfölös_alap-mozzarella-füstölt_lazac-hagyma-kapribogyó', 2400, 'lazacos.jpg'),
+(10, 'Chili Extravaganza', 'paradicsomos_alap-mozzarella-szalámi-chili-paprika', 1900, 'chiliExtra.jpg'),
+(11, 'Klasszikus Quattro Stagioni', 'paradicsomos_alap-mozzarella-sonka-gomba-olívabogyó-articsóka', 2200, 'quattroStag.jpg'),
+(12, 'Vegán Kaland', 'paradicsomos_alap-növényi_sajtszósz-zöldségek', 1600, 'vega.jpg'),
+(13, 'Kéksajtos Élvezet', 'tejfölös_alap-mozzarella-kéksajt-dió-pezsgő-gyümölcs', 2300, 'kéksajtos.jpg'),
+(14, 'Pikáns Kolbász', 'paradicsomos_alap-mozzarella-pikáns_kolbász-hagyma', 2000, 'kolbaszos.jpg'),
+(15, 'Fokhagymás Rák', 'tejfölös_alap-mozzarella-fokhagyma-rák-kapribogyó', 2500, 'rak.jpg'),
+(16, 'Mushroom Delight', 'paradicsomos_alap-mozzarella-varázsgomba-hagyma', 1900, 'varazs.jpg'),
+(17, 'Túró és Sonka', 'tejfölös_alap-mozzarella-túró-sonka-friss_hagyma', 1800, 'turosSonkas.jpg'),
+(18, 'Diós Különlegesség', 'tejfölös_alap-mozzarella-dió-kéksajt', 2400, 'diosKeksajt.jpg'),
+(19, 'Kapros Tejfölös', 'tejfölös_alap-mozzarella-kapros_tejföl-hagyma', 1700, 'kaprosTejfolos.jpg'),
+(20, 'Sörös Húsimádó', 'paradicsomos_alap-mozzarella-sörben_pácolt_hús', 2100, 'soros.jpg'),
+(21, 'Pikáns Tölteni Való', 'paradicsomos_alap-mozzarella-pikáns_töltelék', 2000, 'pikans.jpg'),
+(22, 'Kecskesajtos Különlegesség', 'tejfölös_alap-mozzarella-kecskesajt-olívabogyó', 2300, 'kecskeOliva.jpg'),
+(23, 'Sütőtökös Csoda', 'tejfölös_alap-mozzarella-sütőtök-pisztráng', 2100, 'sutotok.jpg'),
+(24, 'Csemege Csemege', 'paradicsomos_alap-mozzarella-csemege_ízek', 1900, 'csemege.jpg'),
+(25, 'Halas Téli Álmok', 'tejfölös_alap-mozzarella-halas_töltelék', 2500, 'halasTeli.jpg');
 
 -- --------------------------------------------------------
 
@@ -178,6 +193,29 @@ CREATE TABLE `orders` (
   `Cost` int(11) NOT NULL,
   `Date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `orders`
+--
+
+INSERT INTO `orders` (`Order_Id`, `Account_Id`, `Food_Id`, `Number`, `Cost`, `Date`) VALUES
+(1, 2, 1, 2, 3000, '2023-02-10 12:30:00'),
+(1, 2, 3, 1, 1900, '2023-02-10 12:30:00'),
+(2, 3, 5, 3, 5100, '2023-03-22 14:00:00'),
+(3, 4, 2, 2, 3600, '2023-04-01 11:45:00'),
+(3, 4, 4, 1, 1600, '2023-04-01 11:45:00'),
+(4, 5, 6, 2, 4000, '2023-05-05 13:20:00'),
+(5, 6, 7, 1, 2500, '2023-06-10 12:00:00'),
+(5, 6, 10, 2, 3800, '2023-06-10 12:00:00'),
+(6, 7, 8, 3, 5250, '2023-07-15 14:15:00'),
+(7, 8, 9, 2, 4800, '2023-08-20 18:30:00'),
+(7, 8, 12, 1, 1600, '2023-08-20 18:30:00'),
+(8, 9, 15, 1, 2500, '2023-09-12 20:00:00'),
+(9, 10, 13, 1, 2300, '2023-09-20 19:30:00'),
+(9, 10, 18, 2, 4800, '2023-09-20 19:30:00'),
+(10, 11, 20, 2, 4200, '2023-10-01 16:45:00'),
+(11, 12, 21, 3, 6000, '2023-10-25 12:00:00'),
+(11, 12, 23, 1, 2100, '2023-10-25 12:00:00');
 
 --
 -- Indexek a kiírt táblákhoz

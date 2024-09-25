@@ -83,6 +83,7 @@ namespace NurgleEveszdeWpf
         {
             bool vanNev = false;
             bool vanJelszo = false;
+            
             foreach (var user in users)
             {
                 if (user.username == txtUsernameInput.Text && user.password == txtPasswordInput.Password)
@@ -104,8 +105,11 @@ namespace NurgleEveszdeWpf
                     break;
 
                 }
+                
 
             }
+
+            
             if (vanNev && vanJelszo)
             {
                 Rendeles rendeles = new Rendeles();
@@ -130,6 +134,7 @@ namespace NurgleEveszdeWpf
 
         private void btnBejelentkezes_Click(object sender, RoutedEventArgs e)
         {
+           
             checkUser();
 
         }
