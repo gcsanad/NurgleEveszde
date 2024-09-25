@@ -83,13 +83,16 @@ namespace NurgleEveszdeWpf
         {
             bool vanNev = false;
             bool vanJelszo = false;
-            
             foreach (var user in users)
             {
                 if (user.username == txtUsernameInput.Text && user.password == txtPasswordInput.Password)
                 {
                     vanNev = true;
                     vanJelszo = true;
+                    if (user.status == "Admin")
+                    {
+                        isAdmin = true;
+                    }
                     break;
 
                 }
@@ -105,12 +108,8 @@ namespace NurgleEveszdeWpf
                     break;
 
                 }
-                
-
-            }
-
-            
             if (vanNev && vanJelszo)
+
             {
                 Rendeles rendeles = new Rendeles();
                 this.Close();
