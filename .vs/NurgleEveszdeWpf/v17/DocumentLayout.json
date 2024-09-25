@@ -1,25 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\",
+  "WorkspaceRootPath": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\barizs.marton.daniel\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\barizs.marton.daniel\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\barizs.marton.daniel\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\hernadi.balazs\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\barizs.marton.daniel\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\registrationwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\hernadi.balazs\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\adminpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\adminpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\hernadi.balazs\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\hernadi.balazs\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\hernadi.balazs\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\registrationwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\registrationwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\barizs.marton.daniel\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\registrationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|c:\\users\\hernadi.balazs\\source\\repos\\nurgleeveszde\\nurgleeveszdewpf\\registrationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{C21CCC79-ADEF-4F57-B85E-26E46290BDF2}|NurgleEveszdeWpf\\NurgleEveszdeWpf.csproj|solutionrelative:nurgleeveszdewpf\\registrationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -43,10 +47,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AdminPage.xaml",
+              "DocumentMoniker": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\AdminPage.xaml",
+              "RelativeDocumentMoniker": "NurgleEveszdeWpf\\AdminPage.xaml",
+              "ToolTip": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\AdminPage.xaml",
+              "RelativeToolTip": "NurgleEveszdeWpf\\AdminPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-25T08:22:13.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\App.xaml",
+              "DocumentMoniker": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\App.xaml",
               "RelativeDocumentMoniker": "NurgleEveszdeWpf\\App.xaml",
-              "ToolTip": "C:\\Users\\barizs.marton.daniel\\Source\\Repos\\NurgleEveszde\\NurgleEveszdeWpf\\App.xaml",
+              "ToolTip": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\App.xaml",
               "RelativeToolTip": "NurgleEveszdeWpf\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-09-18T11:12:12.819Z",
@@ -54,24 +70,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "NurgleEveszdeWpf\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml.cs",
-              "RelativeToolTip": "NurgleEveszdeWpf\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "NurgleEveszdeWpf\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAmwF4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-18T11:10:30.844Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml",
               "RelativeDocumentMoniker": "NurgleEveszdeWpf\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\MainWindow.xaml",
               "RelativeToolTip": "NurgleEveszdeWpf\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-09-18T11:10:28.172Z",
@@ -79,28 +95,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "RegistrationWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml.cs",
               "RelativeDocumentMoniker": "NurgleEveszdeWpf\\RegistrationWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml.cs",
               "RelativeToolTip": "NurgleEveszdeWpf\\RegistrationWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T11:10:24.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-18T11:10:24.74Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "RegistrationWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml",
               "RelativeDocumentMoniker": "NurgleEveszdeWpf\\RegistrationWindow.xaml",
-              "ToolTip": "C:\\Users\\barizs.marton.daniel\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml",
+              "ToolTip": "C:\\Users\\hernadi.balazs\\source\\repos\\NurgleEveszde\\NurgleEveszdeWpf\\RegistrationWindow.xaml",
               "RelativeToolTip": "NurgleEveszdeWpf\\RegistrationWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-18T11:10:17.277Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-18T11:10:17.277Z"
             }
           ]
         }
