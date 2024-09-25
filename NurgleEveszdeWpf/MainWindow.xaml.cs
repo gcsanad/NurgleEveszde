@@ -111,37 +111,37 @@ namespace NurgleEveszdeWpf
                 }
 
 
-            if (isAdmin)
-            {
-                Admin admin = new Admin();
-                this.Close();
-                admin.ShowDialog();
             }
-            else if (vanNev && vanJelszo)
-            {
-                Rendeles rendeles = new Rendeles();
-                this.Close();
-                rendeles.ShowDialog();
-            }
-            else if (vanNev && !vanJelszo)
-            {
-                MessageBox.Show("Hibás a jelszó!");
-            }
-            else if (!vanNev && vanJelszo)
-            {
-                MessageBox.Show("Hibás a felhasználónév!");
-            }
-            else
-            {
-                MessageBox.Show("Nincs regisztálva ilyen fiók!");
-            }
+                if (isAdmin)
+                {
+                    AdminPage admin = new AdminPage();
+                    this.Close();
+                    admin.ShowDialog();
+                }
+                else if (vanNev && vanJelszo)
+                {
+                    Rendeles rendeles = new Rendeles();
+                    this.Close();
+                    rendeles.ShowDialog();
+                }
+                else if (vanNev && !vanJelszo)
+                {
+                    MessageBox.Show("Hibás a jelszó!");
+                }
+                else if (!vanNev && vanJelszo)
+                {
+                    MessageBox.Show("Hibás a felhasználónév!");
+                }
+                else
+                {
+                    MessageBox.Show("Nincs regisztálva ilyen fiók!");
+                }
+
         }
 
-      
-
-        private void btnBejelentkezes_Click(object sender, RoutedEventArgs e)
+    private void btnBejelentkezes_Click(object sender, RoutedEventArgs e)
         {
-           
+
             checkUser();
 
         }
@@ -152,9 +152,6 @@ namespace NurgleEveszdeWpf
         //    media.Play();
         //}
 
-        private void media_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("asd");
-        }
+
     }
 }

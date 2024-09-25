@@ -64,7 +64,7 @@ namespace NurgleEveszdeWpf
                             masolat.Click += (s, e) => kosar.Remove(s as Pizza);
                             kosar.Add(masolat);
                             ar += (s as Pizza).Ar;
-                            lblAr.Content = $"Fizetendő összeg: {ar} Ft";
+                            //lblAr.Content = $"Fizetendő összeg: {ar} Ft";
                         }
                     };
 
