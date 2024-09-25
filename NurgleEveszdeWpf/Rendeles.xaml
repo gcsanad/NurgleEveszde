@@ -42,19 +42,33 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
-                
+                <Rectangle Width="100" Height="100"
+                           HorizontalAlignment="Center"
+                           x:Name="rtKepPizza"></Rectangle>
+                <ListBox Width="250" Height="150"
+                         HorizontalAlignment="Center" 
+                         Margin="0 10 0 0"
+                         x:Name="lbDetails"></ListBox>
+                <Button Width="100" Height="50"
+                        Content="Felvétel"
+                        Margin="0 50"
+                        x:Name="btnFelvetel"></Button>
             </StackPanel>
             
             <StackPanel Grid.Row="1" Grid.Column="2" Margin="10">
                 <ListBox x:Name="lbKosar" Height="150"/>
                 <Label Content="Borravaló" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="15"/>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Width="35" Height="35" Content="10"/>
-                    <Button Width="35" Height="35" Content="50" Margin="10"/>
-                    <Button Width="35" Height="35" Content="100"/>
+                    <Button Width="35" Height="35" x:Name="btnTip10" Content="10"/>
+                    <Button Width="35" Height="35" x:Name="btnTip50" Content="50" Margin="10"/>
+                    <Button Width="35" Height="35" x:Name="btnTip100" Content="100"/>
                 </StackPanel>
+                <Label Content="Fizetendő összeg: 0 Ft"
+                       FontSize="20"
+                       Foreground="White"
+                       x:Name="lblAr"></Label>
 
-                <Button Width="95" Height="35" Content="Rendelés" Margin="0,25,0,0"/>
+                <Button x:Name="btnRendeles" Width="95" Height="35" Content="Rendelés" Margin="0,25,0,0"/>
 
             </StackPanel>
             

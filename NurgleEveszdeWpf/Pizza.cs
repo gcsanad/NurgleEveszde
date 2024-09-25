@@ -24,16 +24,16 @@ namespace NurgleEveszdeWpf
             this.ingredients = tomb[2];
             this.ar = int.Parse(tomb[3]);
             this.imageName = tomb[4];
-            Kepek(tomb[4]);
+            Kepek(tomb[4], ar);
         }
 
-        public Pizza(string nev)
+        public Pizza(string nev, int arMasolat)
         {
 
-            Kepek(nev);
+            Kepek(nev, arMasolat);
         }
 
-        public void Kepek(string nev)
+        public void Kepek(string nev, int arMasolat)
         {
             BitmapImage bitimg = new BitmapImage();
             bitimg.BeginInit();
@@ -43,10 +43,11 @@ namespace NurgleEveszdeWpf
             this.Height = 50;
             this.Background = new ImageBrush(bitimg);
             this.imageName = nev;
+            this.ar = arMasolat;
         }
 
         public int Id => id;
-        public string Name => name;
+        public new string Name => name;
         public string Ingredients => ingredients;
         public int Ar => ar;
         public string ImageName => imageName;
