@@ -14,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Net.Mail;
+using System.Net;
 
 namespace NurgleEveszdeWpf
 {
@@ -22,12 +24,15 @@ namespace NurgleEveszdeWpf
     /// </summary>
     public partial class Rendeles : Window
     {
+        public static string FROM_EMAIL = "nurglepizzeria@gmail.com";
+        public static string FROM_PASS = "plpc pngt egjt jcvf ";
         public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
         private MySqlConnection connection;
         int ar = 0;
         Pizza jelenlegiPizza;
         public Rendeles()
         {
+            
             InitializeComponent();
             ObservableCollection<Pizza> kosar = [];
             ObservableCollection<Pizza> pizzak = [];
@@ -72,25 +77,7 @@ namespace NurgleEveszdeWpf
                 lblAr.Content = $"Fizetendő összeg: {ar} Ft";
             };
 
-            btnTip10.Click += (s, e) =>
-            {
-                if (s is Button)
-                    Tip(int.Parse((s as Button).Content.ToString()));
-            };
-
-            btnTip50.Click += (s, e) =>
-            {
-                if (s is Button)
-                    Tip(int.Parse((s as Button).Content.ToString()));
-            };
-
-            btnTip100.Click += (s, e) =>
-            {
-                if (s is Button)
-                    Tip(int.Parse((s as Button).Content.ToString()));
-            };
-
-            btnRendeles.Click += (s, e) => MessageBox.Show("Fin.");
+            btnRendeles.Click += (s, e) => RendelesJovahagyvaEmail();
 
             for (int i = 0; i < lbPizzak.Items.Count; i++)
             {
@@ -116,6 +103,29 @@ namespace NurgleEveszdeWpf
                     };
 
                 }
+            }
+        }
+        public static void RendelesJovahagyvaEmail()
+        {
+
+            try
+            {
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(FROM_EMAIL);
+                mail.To.Add("gcsani01@gmail.com");
+                mail.Subject = "Pizza rendelés elfogadva";
+                mail.Body = "Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!";
+                mail.IsBodyHtml = false;
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.Credentials = new NetworkCredential("nurglepizzeria@gmail.com", "plpc pngt egjt jcvf ");
+                smtpClient.Send(mail);
+                MessageBox.Show("Rendelés sikeresen leadva!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hiba az email küldése közben" + ex.Message);
             }
         }
 

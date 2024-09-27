@@ -80,7 +80,7 @@ namespace NurgleEveszdeWpf
             }
         }
         private void checkUser()
-        {
+        { 
             bool vanNev = false;
             bool vanJelszo = false;
             bool isAdmin = false;
