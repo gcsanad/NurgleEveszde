@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\beke.tamas\source\repos\gcsanad\NurgleEveszde\NurgleEveszdeWpf\obj\Debug\net8.0-windows\
+C:\Users\GIGABYTE\Source\Repos\NurgleEveszde\NurgleEveszdeWpf\obj\Debug\net8.0-windows\
 NurgleEveszdeWpf
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\beke.tamas\source\repos\gcsanad\NurgleEveszde\NurgleEveszdeWpf\App.xaml
+C:\Users\GIGABYTE\Source\Repos\NurgleEveszde\NurgleEveszdeWpf\App.xaml
 4133584981
 1475939974
 10-747797708
-2061535094806
+206-548226525
 AdminPage.xaml;MainWindow.xaml;RegistrationWindow.xaml;Rendeles.xaml;
 
-True
+False
 

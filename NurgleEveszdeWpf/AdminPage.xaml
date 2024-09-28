@@ -8,16 +8,24 @@
         Title="AdminPage" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized">
     <Grid Background="#525252">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="9*"/>
-        </Grid.RowDefinitions>  
-        
-        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="5" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Background="#414141" VerticalAlignment="Center" HorizontalAlignment="Center">
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Black" 
+                BorderThickness="2" 
+                CornerRadius="5" 
+                Grid.Column="0" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Left" 
+                Grid.ColumnSpan="2" Height="67" Margin="740,0,0,0" Width="440">
+            <StackPanel Background="#414141" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center">
                 <Label Content="Nurgle Evészde - Admin" 
                        FontSize="40" 
                        VerticalAlignment="Top" 
@@ -25,8 +33,22 @@
                        Foreground="#6EC207"/>
             </StackPanel>
         </Border>
-        
-        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="5" Grid.Column="0" Grid.Row="1" Margin="10">
+        <Button Grid.Column="1"
+                Style="{DynamicResource ButtonStyleLogIn}" 
+                Width="150" 
+                FontSize="16" 
+                Content="Kijelentkezés"
+                Margin="20"
+                HorizontalAlignment="Right"/>
+
+        <Border BorderBrush="Black" 
+                BorderThickness="2" 
+                CornerRadius="5" 
+                Grid.Column="0" 
+                Grid.Row="1" 
+                Margin="30,10,0,10" 
+                Width="550" 
+                HorizontalAlignment="Left">
             <DataGrid x:Name="dgAlapanyagok" 
                       Background="#414141" 
                       Foreground="#6EC207" 
@@ -36,14 +58,43 @@
                       VerticalGridLinesBrush="Black" 
                       BorderBrush="Black" 
                       BorderThickness="2" 
-                      AutoGenerateColumns="True" />
+                      AutoGenerateColumns="True" 
+                      FontSize="25"/>
         </Border>
-        
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#525252" Width="auto" Height="auto">
-            <Button Style="{DynamicResource ButtonStyleLogIn}" Width="150" Height="40" FontSize="16" Content="Hozzáadás" Margin="10"/>
-            <Button Style="{DynamicResource ButtonStyleLogIn}" Width="150" Height="40" FontSize="16" Content="Módosítás" Margin="10"/>
-            <Button Style="{DynamicResource ButtonStyleLogIn}" Width="150" Height="40" FontSize="16" Content="Törlés" Margin="10"/>
-            <Button Style="{DynamicResource ButtonStyleLogIn}" Width="150" Height="40" FontSize="16" Content="Kijelentkezés" Margin="10"/>
-        </StackPanel>
+
+        <Border BorderBrush="Black" 
+        BorderThickness="2" 
+        CornerRadius="5" 
+        Grid.Column="1" 
+        Grid.Row="1"
+        VerticalAlignment="Center" 
+        HorizontalAlignment="Center"
+        Width="1100" 
+        Height="900">
+            <StackPanel Background="#525252">
+                <StackPanel Background="#414141"
+                            Height="438"
+                            Margin="0,0,0,10">
+
+                </StackPanel>
+                <StackPanel Background="#414141"
+                            Height="438"
+                            Margin="0,10,0,0">
+
+                </StackPanel>
+                <!--<Button Style="{DynamicResource ButtonStyleLogIn}" 
+                    Width="150" 
+                    Height="40" 
+                    FontSize="16" 
+                    Content="Felvétel" 
+                    Margin="10"/>
+            <Button Style="{DynamicResource ButtonStyleLogIn}"
+                    Width="150" 
+                    Height="40" 
+                    FontSize="16" 
+                    Content="Törlés" 
+                    Margin="10"/>-->
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
