@@ -140,7 +140,6 @@
                                     Margin="20"
                                     IsEnabled="False"
                                     x:Name="btnModosit"/>
-
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -148,8 +147,8 @@
                             Height="438"
                             Margin="0,10,0,0">
                     <Image Source="nurgle.jpg"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"/>
+                           HorizontalAlignment="Center"
+                           />
                 </StackPanel>
             </StackPanel>
         </Border>

@@ -48,11 +48,19 @@ namespace NurgleEveszdeWpf
                 lekerdezes.CommandTimeout = 60;
                 MySqlDataReader reader = lekerdezes.ExecuteReader();
                 while (reader.Read())
-                    pizzak.Add(new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)}".Split(";")));
+                    pizzak.Add(new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)};{reader.GetBoolean(5)}".Split(";")));
 
                 reader.Close();
                 connection.Close();
+                pizzak.ToList().ForEach(pizza =>
+                {
+                    if (!pizza.Available)
+                    {
+                        pizza.IsEnabled = false;
+                    }
+                });
                 lbPizzak.ItemsSource = pizzak;
+                
             }
             catch (Exception e)
             {

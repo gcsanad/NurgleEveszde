@@ -39,7 +39,7 @@ namespace NurgleEveszdeWpf
                 lekerdezes.CommandTimeout = 60;
                 MySqlDataReader reader = lekerdezes.ExecuteReader();
                 while (reader.Read())
-                    pizzas.Add(new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)}".Split(";")));
+                    pizzas.Add(new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)};{reader.GetBoolean(5)}".Split(";")));
 
                 reader.Close();
                 connection.Close();
@@ -90,8 +90,6 @@ namespace NurgleEveszdeWpf
 
             btnModosit.Click += (s, e) => 
             {
-
-
                 try
                 {
                     connection = new MySqlConnection(connectionString);
@@ -132,6 +130,17 @@ namespace NurgleEveszdeWpf
                             lekerdezes.Parameters.AddWithValue("@Available", Convert.ToInt32(tbAlapanyagCount.Text));
                             lekerdezes.ExecuteNonQuery();
                         }
+                        pizzas.Where(x => x.Ingredients.Split("-").Contains(tbAlapanyagNev.Text)).ToList().ForEach(x =>
+                        {
+                            connection = new MySqlConnection(connectionString);
+                            connection.Open();
+                            string lekerdezesSzovegFoods = $"UPDATE `foods` SET `Available`=TRUE WHERE foods.Food_Id = {x.Id}";
+                            using (var lekerdezes = new MySqlCommand(lekerdezesSzovegFoods, connection))
+                            {
+                                lekerdezes.ExecuteNonQuery();
+                            }
+                            x.Available = true;
+                        });
                         ingredients.Clear();
                         Beolvasas();
                         dgAlapanyagok.Items.Refresh();
@@ -146,42 +155,36 @@ namespace NurgleEveszdeWpf
                     }
                 }
                 else
-                    MessageBox.Show("Valami nem okés!");
+                    MessageBox.Show("Nincs mennyiség, vagy név megadva!");
             };
 
-            /*btnTorles.Click += (s, e) =>
+            btnTorles.Click += (s, e) =>
             {
                 if (dgAlapanyagok.SelectedIndex != -1 && dgAlapanyagok.SelectedItems.Count == 1 && dgAlapanyagok.SelectedItem is Ingredients)
                 {
                     try
                     {
-                        var törlendoPizzak = pizzas.Where(x => x.Ingredients.Contains(tbAlapanyagNev.Text));
-                        törlendoPizzak.ToList().ForEach(x =>
+                        pizzas.Where(x => x.Ingredients.Split("-").Contains((dgAlapanyagok.SelectedItem as Ingredients).Name)).ToList().ForEach(x =>
                         {
                             connection = new MySqlConnection(connectionString);
                             connection.Open();
-                            string lekerdezesKetto = $"DELETE FROM `orders` WHERE orders.Food_Id = {x.Id}";
-                            using (var lekerdezesOrders = new MySqlCommand(lekerdezesKetto, connection))
-                            {
-                                lekerdezesOrders.ExecuteNonQuery();
-                            }
-                            string lekerdezesSzoveg = $"DELETE FROM `foods` WHERE Food_Id = {x.Id}";
-                            using (var lekerdezes = new MySqlCommand(lekerdezesSzoveg, connection))
+                            string lekerdezesSzovegFoods = $"UPDATE `foods` SET `Available`=FALSE WHERE foods.Food_Id = {x.Id}";
+                            using (var lekerdezes = new MySqlCommand(lekerdezesSzovegFoods, connection))
                             {
                                 lekerdezes.ExecuteNonQuery();
                             }
-
+                            x.Available = false;
                         });
+
 
                         connection = new MySqlConnection(connectionString);
                         connection.Open();
-                        string lekerdezesSzoveg = $"DELETE FROM `ingredients` WHERE Ingredient_Id = {(dgAlapanyagok.SelectedItem as Ingredients).Id}";
-                        using (var lekerdezes = new MySqlCommand(lekerdezesSzoveg, connection))
+                        string lekerdezesSzovegIngredients = $"DELETE FROM `ingredients` WHERE Ingredient_Id = {(dgAlapanyagok.SelectedItem as Ingredients).Id}";
+                        using (var lekerdezes = new MySqlCommand(lekerdezesSzovegIngredients, connection))
                         {
                             lekerdezes.ExecuteNonQuery();
                         }
-
-
+                        ingredients.Remove(dgAlapanyagok.SelectedItem as Ingredients);
                         dgAlapanyagok.Items.Refresh();
                     }
                     catch (Exception n)
@@ -192,7 +195,7 @@ namespace NurgleEveszdeWpf
                 }
                 else
                     MessageBox.Show("Nnincs kiválasztva sor, vagy több mint egy sor választott ki!");
-            };*/
+            };
         }
 
         private void kijelentkezes(object sender, RoutedEventArgs e)

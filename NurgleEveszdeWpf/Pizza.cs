@@ -16,6 +16,7 @@ namespace NurgleEveszdeWpf
         string ingredients;
         int ar;
         string imageName;
+        bool available;
 
         public Pizza(string[] tomb)
         {
@@ -24,6 +25,7 @@ namespace NurgleEveszdeWpf
             this.ingredients = tomb[2];
             this.ar = int.Parse(tomb[3]);
             this.imageName = tomb[4];
+            this.available = tomb[5] == "True" ? true : false;
             Kepek(tomb[4], ar);
         }
 
@@ -51,5 +53,6 @@ namespace NurgleEveszdeWpf
         public string Ingredients => ingredients;
         public int Ar => ar;
         public string ImageName => imageName;
+        public bool Available { get => available; set => available = value; }
     }
 }
