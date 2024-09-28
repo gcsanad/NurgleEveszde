@@ -27,7 +27,6 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="40"/>
                         </Grid.ColumnDefinitions>
-
                         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
                             <Label Content="Felhasználónév" Margin="0,0,0,-5" FontSize="15" Foreground="#6EC207" />
                             <TextBox Style="{DynamicResource TextBoxStyleTextBox}" Width="250" Height="20" x:Name="txtName" HorizontalAlignment="Left"/>
