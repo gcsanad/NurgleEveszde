@@ -20,8 +20,11 @@ namespace NurgleEveszdeWpf
             this.available = int.Parse(tomb[2]);
         }
 
-        public int Id  => id;
-        public string Name  => name; 
-        public int Available => available; 
+        public Ingredients() { }
+
+        public int Id => id;
+
+        public string Name { get => name; set => name = value; }
+        public int Available { get => available; set => available = value; }
     }
 }

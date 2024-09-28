@@ -70,16 +70,18 @@
                 Content="Módosítás"
                 Margin="20"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top"
+                x:Name="btnModositas"/>
         <Button Grid.Row="1"
-        Style="{DynamicResource ButtonStyleLogIn}" 
-        Width="150"
-        Height="100"
-        FontSize="20"
-        Content="Törlés"
-        Margin="20, 140, 20, 0"
-        HorizontalAlignment="Right"
-        VerticalAlignment="Top"/>
+                Style="{DynamicResource ButtonStyleLogIn}" 
+                Width="150"
+                Height="100"
+                FontSize="20"
+                Content="Törlés"
+                Margin="20, 140, 20, 0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                x:Name="btnTorles"/>
 
         <Border BorderBrush="Black" 
         BorderThickness="2" 
@@ -101,7 +103,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBox x:Name="myTextBox"
+                        <TextBox x:Name="tbAlapanyagNev"
                                  Margin="10"
                                  FontSize="30"
                                  Foreground="#6EC207"
@@ -109,7 +111,7 @@
                                  TextWrapping="Wrap" 
                                  AcceptsReturn="True"
                                  TextChanged="myTextBox_TextChanged"/>
-                        <TextBox x:Name="NumberInput" 
+                        <TextBox x:Name="tbAlapanyagCount" 
                                  Grid.Column="1"
                                  Margin="10"
                                  Height="40"
@@ -128,14 +130,16 @@
                                     Height="100"
                                     FontSize="20"
                                     Content="Felvétel"
-                                    Margin="20"/>
+                                    Margin="20"
+                                    x:Name="btnFelvetel"/>
                             <Button Style="{DynamicResource ButtonStyleLogIn}" 
                                     Width="150"
                                     Height="100"
                                     FontSize="20"
-                                    Content="Felvétel"
+                                    Content="Módosít"
                                     Margin="20"
-                                    IsEnabled="False"/>
+                                    IsEnabled="False"
+                                    x:Name="btnModosit"/>
 
                         </StackPanel>
                     </Grid>
