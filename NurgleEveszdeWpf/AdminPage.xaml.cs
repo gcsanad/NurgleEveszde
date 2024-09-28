@@ -49,5 +49,12 @@ namespace NurgleEveszdeWpf
                 MessageBox.Show(e.Message);
             }
         }
+
+        private void kijelentkezes(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.ShowDialog();
+        }
     }
 }
