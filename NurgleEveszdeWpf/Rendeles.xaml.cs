@@ -28,7 +28,7 @@ namespace NurgleEveszdeWpf
         public static string FROM_PASS = "plpc pngt egjt jcvf ";
         public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
         private MySqlConnection connection;
-        int ar = 0;
+        static int ar = 0;
         Pizza jelenlegiPizza;
         static User bejelentkezettFelhasznalo;
         static User regisztraltFelhasznalo;
@@ -55,9 +55,7 @@ namespace NurgleEveszdeWpf
                 pizzak.ToList().ForEach(pizza =>
                 {
                     if (!pizza.Available)
-                    {
                         pizza.IsEnabled = false;
-                    }
                 });
                 lbPizzak.ItemsSource = pizzak;
                 
@@ -87,7 +85,13 @@ namespace NurgleEveszdeWpf
                 lblAr.Content = $"Fizetendő összeg: {ar} Ft";
             };
 
-            btnRendeles.Click += (s, e) => RendelesJovahagyvaEmail();
+            btnRendeles.Click += (s, e) => 
+            {
+                if (pizzak.OrderBy(x => x.Ar).First().Ar > ar)
+                    MessageBox.Show("Hát a semmit nem szállítjuk ki, kösz");
+                else
+                    RendelesJovahagyvaEmail();
+             };
 
             for (int i = 0; i < lbPizzak.Items.Count; i++)
             {
@@ -108,7 +112,6 @@ namespace NurgleEveszdeWpf
                             bitimg.EndInit();
                             rtKepPizza.Fill = new ImageBrush(bitimg);
                             jelenlegiPizza = (s as Pizza);
-
                         }
                     };
 
@@ -116,10 +119,7 @@ namespace NurgleEveszdeWpf
             }
             MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             if (mainWindow != null)
-            {
                 bejelentkezettFelhasznalo = mainWindow.Bejelentkezett;
-                
-            }
             
                 txtTelefon.Text = bejelentkezettFelhasznalo.mobil;
                 txtCim.Text = bejelentkezettFelhasznalo.address;
@@ -135,7 +135,7 @@ namespace NurgleEveszdeWpf
                 mail.From = new MailAddress(FROM_EMAIL);
                 mail.To.Add(bejelentkezettFelhasznalo.email);
                 mail.Subject = "Pizza rendelés elfogadva";
-                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}";
+                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar}Ft";
                 mail.IsBodyHtml = false;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
