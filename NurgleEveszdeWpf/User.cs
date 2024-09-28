@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NurgleEveszdeWpf
 {
-    class User
+    public class User
     {
         public int accountID { get; set; }
         public string? username { get; set; }

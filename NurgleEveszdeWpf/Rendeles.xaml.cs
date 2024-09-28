@@ -30,6 +30,8 @@ namespace NurgleEveszdeWpf
         private MySqlConnection connection;
         int ar = 0;
         Pizza jelenlegiPizza;
+        static User bejelentkezettFelhasznalo;
+        static User regisztraltFelhasznalo;
         public Rendeles()
         {
             
@@ -104,6 +106,17 @@ namespace NurgleEveszdeWpf
 
                 }
             }
+            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            if (mainWindow != null)
+            {
+                bejelentkezettFelhasznalo = mainWindow.Bejelentkezett;
+                
+            }
+            
+                txtTelefon.Text = bejelentkezettFelhasznalo.mobil;
+                txtCim.Text = bejelentkezettFelhasznalo.address;
+            
+            
         }
         public static void RendelesJovahagyvaEmail()
         {
@@ -112,9 +125,9 @@ namespace NurgleEveszdeWpf
             {
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(FROM_EMAIL);
-                mail.To.Add("gcsani01@gmail.com");
+                mail.To.Add(bejelentkezettFelhasznalo.email);
                 mail.Subject = "Pizza rendelés elfogadva";
-                mail.Body = "Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!";
+                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}";
                 mail.IsBodyHtml = false;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);

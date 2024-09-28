@@ -22,7 +22,7 @@ namespace NurgleEveszdeWpf
         public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
         private MySqlConnection connection;
         List<User> users;
-
+        public User Bejelentkezett { get; set; }
 
 
         public MainWindow()
@@ -45,7 +45,7 @@ namespace NurgleEveszdeWpf
         
         private void btnRegisztracio_Click(object sender, RoutedEventArgs e)
         {
-            Window registrationWindow = new RegistrationWindow();
+            RegistrationWindow registrationWindow = new RegistrationWindow();
             registrationWindow.Show();
             this.Close();
         }
@@ -94,6 +94,7 @@ namespace NurgleEveszdeWpf
                     {
                         isAdmin = true;
                     }
+                    Bejelentkezett = user;
                     break;
 
                 }

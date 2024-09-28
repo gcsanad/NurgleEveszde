@@ -25,6 +25,7 @@ namespace NurgleEveszdeWpf
         public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
         private MySqlConnection connection;
         List<User> users;
+        
         bool vanHiba = false;
         string hibaÜzenet = "";
         string nev = "";
@@ -78,12 +79,12 @@ namespace NurgleEveszdeWpf
                         lekerdezes.ExecuteNonQuery();
                     }
                 }
-
+                
             }
             catch (Exception ex)
             {
 
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
