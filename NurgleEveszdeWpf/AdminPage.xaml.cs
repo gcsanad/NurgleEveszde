@@ -56,5 +56,32 @@ namespace NurgleEveszdeWpf
             this.Close();
             main.ShowDialog();
         }
+
+        private void myTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Ellenőrizzük, hány sor van a TextBoxban
+            var lineCount = myTextBox.LineCount;
+
+            // Ha több mint 10 sor van, akkor levágjuk a felesleget
+            if (lineCount > 10)
+            {
+                // Megakadályozzuk további sorok hozzáadását
+                int lastVisibleCharIndex = myTextBox.GetCharacterIndexFromLineIndex(10);
+                myTextBox.Text = myTextBox.Text.Substring(0, lastVisibleCharIndex);
+
+                // A kurzort a végére helyezzük
+                myTextBox.CaretIndex = myTextBox.Text.Length;
+            }
+        }
+
+        private void NumberValidationTextBox(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string text)
+        {
+            return int.TryParse(text, out _);
+        }
     }
 }
