@@ -26,20 +26,24 @@ namespace NurgleEveszdeWpf
             this.ar = int.Parse(tomb[3]);
             this.imageName = tomb[4];
             this.available = tomb[5] == "True" ? true : false;
-            Kepek(tomb[4], ar);
+            Kepek(tomb[4], ar, available);
         }
 
-        public Pizza(string nev, int arMasolat)
+        public Pizza(string nev, int arMasolat, bool available)
         {
 
-            Kepek(nev, arMasolat);
+            Kepek(nev, arMasolat, available);
         }
 
-        public void Kepek(string nev, int arMasolat)
+        public void Kepek(string nev, int arMasolat, bool available)
         {
+            string kep = "";
+
+            kep = (available == true) ? @$".\\pizzaKepek\\{nev}" : @$".\\pizzaKepek\\not.jpg";
+
             BitmapImage bitimg = new BitmapImage();
             bitimg.BeginInit();
-            bitimg.UriSource = new Uri(@$".\\pizzaKepek\\{nev}", UriKind.RelativeOrAbsolute);
+            bitimg.UriSource = new Uri(kep, UriKind.RelativeOrAbsolute);
             bitimg.EndInit();
             this.Width = 50;
             this.Height = 50;

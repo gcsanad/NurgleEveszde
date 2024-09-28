@@ -52,11 +52,6 @@ namespace NurgleEveszdeWpf
 
                 reader.Close();
                 connection.Close();
-                pizzak.ToList().ForEach(pizza =>
-                {
-                    if (!pizza.Available)
-                        pizza.IsEnabled = false;
-                });
                 lbPizzak.ItemsSource = pizzak;
                 
             }
@@ -68,7 +63,7 @@ namespace NurgleEveszdeWpf
             btnFelvetel.Click += (s, e) =>
             {
 
-                Pizza masolat = new Pizza(jelenlegiPizza.ImageName.ToString(), jelenlegiPizza.Ar);
+                Pizza masolat = new Pizza(jelenlegiPizza.ImageName.ToString(), jelenlegiPizza.Ar, jelenlegiPizza.Available);
                 masolat.Click += (s, e) => 
                 {
                     kosar.Remove(s as Pizza);
@@ -95,7 +90,7 @@ namespace NurgleEveszdeWpf
 
             for (int i = 0; i < lbPizzak.Items.Count; i++)
             {
-                if (lbPizzak.Items[i] is Pizza)
+                if (lbPizzak.Items[i] is Pizza && (lbPizzak.Items[i] as Pizza).Available == true)
                 {
 
                     (lbPizzak.Items[i] as Pizza).Click += (s, e) =>
