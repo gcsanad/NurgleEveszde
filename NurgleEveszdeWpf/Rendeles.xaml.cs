@@ -29,6 +29,7 @@ namespace NurgleEveszdeWpf
         public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
         private MySqlConnection connection;
         static int ar = 0;
+        static int tip;
         Pizza jelenlegiPizza;
         static User bejelentkezettFelhasznalo;
         static User regisztraltFelhasznalo;
@@ -74,18 +75,25 @@ namespace NurgleEveszdeWpf
                 ar += jelenlegiPizza.Ar;
                 lblAr.Content = $"Fizetendő összeg: {ar} Ft";
             };
-            var Tip = (int tip) =>
+
+            sldTip.ValueChanged += (s, e) => 
             {
-                ar += tip;
-                lblAr.Content = $"Fizetendő összeg: {ar} Ft";
+                lbTip.Content = Convert.ToInt32(sldTip.Value);
+                tip = Convert.ToInt32(sldTip.Value);
             };
 
             btnRendeles.Click += (s, e) => 
             {
                 if (pizzak.OrderBy(x => x.Ar).First().Ar > ar)
-                    MessageBox.Show("Hát a semmit nem szállítjuk ki, kösz");
+                    MessageBox.Show("Hát, a semmit nem szállítjuk ki, kösz.");
                 else
-                    RendelesJovahagyvaEmail();
+                {
+                    var Result = MessageBox.Show($"Végösszeg: {ar} + tip: {tip}\nBefejezi a rendelést?", "Rendelés", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (Result == MessageBoxResult.Yes)
+                        RendelesJovahagyvaEmail();
+                    else
+                        return;
+                }
              };
 
             for (int i = 0; i < lbPizzak.Items.Count; i++)
@@ -130,7 +138,7 @@ namespace NurgleEveszdeWpf
                 mail.From = new MailAddress(FROM_EMAIL);
                 mail.To.Add(bejelentkezettFelhasznalo.email);
                 mail.Subject = "Pizza rendelés elfogadva";
-                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar}Ft";
+                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar + tip}Ft";
                 mail.IsBodyHtml = false;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
