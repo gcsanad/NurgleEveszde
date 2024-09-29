@@ -37,8 +37,8 @@ namespace NurgleEveszdeWpf
         {
             
             InitializeComponent();
-            ObservableCollection<Pizza> kosar = [];
-            ObservableCollection<Pizza> pizzak = [];
+            ObservableCollection<StackPanel> kosar = [];
+            ObservableCollection<StackPanel> pizzak = [];
             lbKosar.ItemsSource = kosar;
             try
             {
@@ -49,7 +49,16 @@ namespace NurgleEveszdeWpf
                 lekerdezes.CommandTimeout = 60;
                 MySqlDataReader reader = lekerdezes.ExecuteReader();
                 while (reader.Read())
-                    pizzak.Add(new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)};{reader.GetBoolean(5)}".Split(";")));
+                {
+                    StackPanel stackPanelTarolo = new StackPanel();
+                    Label labelNev = new Label();
+                    Pizza pizza = new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)};{reader.GetBoolean(5)}".Split(";"));
+                    labelNev.Content = pizza.Name;
+                    stackPanelTarolo.Orientation = Orientation.Vertical;
+                    stackPanelTarolo.Children.Add(pizza);
+                    stackPanelTarolo.Children.Add(labelNev);
+                    pizzak.Add(stackPanelTarolo);
+                }
 
                 reader.Close();
                 connection.Close();
@@ -63,15 +72,30 @@ namespace NurgleEveszdeWpf
             }
             btnFelvetel.Click += (s, e) =>
             {
-
+                StackPanel stackpanelKosar = new StackPanel();
+                Label labelKoasr = new Label();
                 Pizza masolat = new Pizza(jelenlegiPizza.ImageName.ToString(), jelenlegiPizza.Ar, jelenlegiPizza.Available);
+                labelKoasr.Content = jelenlegiPizza.Name;
+                labelKoasr.VerticalContentAlignment = VerticalAlignment.Center;
+                labelKoasr.HorizontalContentAlignment = HorizontalAlignment.Center;
+                stackpanelKosar.Children.Add(masolat);
+                stackpanelKosar.Children.Add(labelKoasr);
+                stackpanelKosar.Orientation = Orientation.Horizontal;
                 masolat.Click += (s, e) => 
                 {
-                    kosar.Remove(s as Pizza);
-                    ar -= (s as Pizza).Ar;
-                    lblAr.Content = $"Fizetendő összeg: {ar} Ft";
+                    if ((s as Pizza).Parent is StackPanel)
+                    {
+                        kosar.Remove((s as Pizza).Parent as StackPanel);
+                        ar -= (s as Pizza).Ar;
+                        lblAr.Content = $"Fizetendő összeg: {ar} Ft";   
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hűha!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                 };
-                kosar.Add(masolat);
+                kosar.Add(stackpanelKosar);
                 ar += jelenlegiPizza.Ar;
                 lblAr.Content = $"Fizetendő összeg: {ar} Ft";
             };
@@ -84,7 +108,7 @@ namespace NurgleEveszdeWpf
 
             btnRendeles.Click += (s, e) => 
             {
-                if (pizzak.OrderBy(x => x.Ar).First().Ar > ar)
+                if ((pizzak.OrderBy(x => (x.Children[0] as Pizza).Ar).First().Children[0] as Pizza).Ar > ar)
                     MessageBox.Show("Hát, a semmit nem szállítjuk ki, kösz.");
                 else
                 {
@@ -95,13 +119,13 @@ namespace NurgleEveszdeWpf
                         return;
                 }
              };
-
-            for (int i = 0; i < lbPizzak.Items.Count; i++)
+            
+            for (int i = 0; i < pizzak.Count; i++)
             {
-                if (lbPizzak.Items[i] is Pizza && (lbPizzak.Items[i] as Pizza).Available == true)
+                if (pizzak[i].Children[0] is Pizza && (pizzak[i].Children[0] as Pizza).Available == true)
                 {
 
-                    (lbPizzak.Items[i] as Pizza).Click += (s, e) =>
+                    (pizzak[i].Children[0] as Pizza).Click += (s, e) =>
                     {
                         if (s is Pizza)
                         {
