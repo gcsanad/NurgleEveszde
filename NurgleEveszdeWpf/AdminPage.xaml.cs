@@ -231,5 +231,10 @@ namespace NurgleEveszdeWpf
         {
             return int.TryParse(text, out _);
         }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

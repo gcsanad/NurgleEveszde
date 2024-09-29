@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:NurgleEveszdeWpf"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Nurgle Evészde" Height="300" Width="400" WindowStartupLocation="CenterScreen">
-    <Grid Background="#525252">
+        Title="Nurgle Evészde" Height="300" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+    <Grid>
 
-        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="5" Width="350" Height="250" VerticalAlignment="Center">
-            <StackPanel Background="#414141"
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="20" Width="350" Height="250" VerticalAlignment="Center" Background="#414141" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <StackPanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Width="350" Height="250">

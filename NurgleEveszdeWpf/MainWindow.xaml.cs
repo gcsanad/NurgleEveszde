@@ -147,6 +147,11 @@ namespace NurgleEveszdeWpf
 
         }
 
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
         //private void PlayagainGIF(object sender, RoutedEventArgs e)
         //{
         //    media.Position = new TimeSpan(0, 0, 1);
