@@ -29,6 +29,7 @@ namespace NurgleEveszdeWpf
         public string connectionString = "datasource = 127.0.0.1;port=3306;username=root;password=;database=nurgleeveszde";
         private MySqlConnection connection;
         static int ar = 0;
+        static int tip;
         Pizza jelenlegiPizza;
         static User bejelentkezettFelhasznalo;
         static User regisztraltFelhasznalo;
@@ -36,8 +37,8 @@ namespace NurgleEveszdeWpf
         {
             
             InitializeComponent();
-            ObservableCollection<Pizza> kosar = [];
-            ObservableCollection<Pizza> pizzak = [];
+            ObservableCollection<StackPanel> kosar = [];
+            ObservableCollection<StackPanel> pizzak = [];
             lbKosar.ItemsSource = kosar;
             try
             {
@@ -48,7 +49,16 @@ namespace NurgleEveszdeWpf
                 lekerdezes.CommandTimeout = 60;
                 MySqlDataReader reader = lekerdezes.ExecuteReader();
                 while (reader.Read())
-                    pizzak.Add(new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)};{reader.GetBoolean(5)}".Split(";")));
+                {
+                    StackPanel stackPanelTarolo = new StackPanel();
+                    Label labelNev = new Label();
+                    Pizza pizza = new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)};{reader.GetBoolean(5)}".Split(";"));
+                    labelNev.Content = pizza.Name;
+                    stackPanelTarolo.Orientation = Orientation.Vertical;
+                    stackPanelTarolo.Children.Add(pizza);
+                    stackPanelTarolo.Children.Add(labelNev);
+                    pizzak.Add(stackPanelTarolo);
+                }
 
                 reader.Close();
                 connection.Close();
@@ -62,38 +72,60 @@ namespace NurgleEveszdeWpf
             }
             btnFelvetel.Click += (s, e) =>
             {
-
+                StackPanel stackpanelKosar = new StackPanel();
+                Label labelKoasr = new Label();
                 Pizza masolat = new Pizza(jelenlegiPizza.ImageName.ToString(), jelenlegiPizza.Ar, jelenlegiPizza.Available);
+                labelKoasr.Content = jelenlegiPizza.Name;
+                labelKoasr.VerticalContentAlignment = VerticalAlignment.Center;
+                labelKoasr.HorizontalContentAlignment = HorizontalAlignment.Center;
+                stackpanelKosar.Children.Add(masolat);
+                stackpanelKosar.Children.Add(labelKoasr);
+                stackpanelKosar.Orientation = Orientation.Horizontal;
                 masolat.Click += (s, e) => 
                 {
-                    kosar.Remove(s as Pizza);
-                    ar -= (s as Pizza).Ar;
-                    lblAr.Content = $"Fizetendő összeg: {ar} Ft";
+                    if ((s as Pizza).Parent is StackPanel)
+                    {
+                        kosar.Remove((s as Pizza).Parent as StackPanel);
+                        ar -= (s as Pizza).Ar;
+                        lblAr.Content = $"Fizetendő összeg: {ar} Ft";   
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hűha!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                 };
-                kosar.Add(masolat);
+                kosar.Add(stackpanelKosar);
                 ar += jelenlegiPizza.Ar;
                 lblAr.Content = $"Fizetendő összeg: {ar} Ft";
             };
-            var Tip = (int tip) =>
+
+            sldTip.ValueChanged += (s, e) => 
             {
-                ar += tip;
-                lblAr.Content = $"Fizetendő összeg: {ar} Ft";
+                lbTip.Content = Convert.ToInt32(sldTip.Value);
+                tip = Convert.ToInt32(sldTip.Value);
             };
 
             btnRendeles.Click += (s, e) => 
             {
-                if (pizzak.OrderBy(x => x.Ar).First().Ar > ar)
-                    MessageBox.Show("Hát a semmit nem szállítjuk ki, kösz");
+                if ((pizzak.OrderBy(x => (x.Children[0] as Pizza).Ar).First().Children[0] as Pizza).Ar > ar)
+                    MessageBox.Show("Hát, a semmit nem szállítjuk ki, kösz.");
                 else
-                    RendelesJovahagyvaEmail();
+                {
+                    var Result = MessageBox.Show($"Végösszeg: {ar} + tip: {tip}\nBefejezi a rendelést?", "Rendelés", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (Result == MessageBoxResult.Yes)
+                        RendelesJovahagyvaEmail();
+                    else
+                        return;
+                }
              };
-
-            for (int i = 0; i < lbPizzak.Items.Count; i++)
+            
+            for (int i = 0; i < pizzak.Count; i++)
             {
-                if (lbPizzak.Items[i] is Pizza && (lbPizzak.Items[i] as Pizza).Available == true)
+                if (pizzak[i].Children[0] is Pizza && (pizzak[i].Children[0] as Pizza).Available == true)
                 {
 
-                    (lbPizzak.Items[i] as Pizza).Click += (s, e) =>
+                    (pizzak[i].Children[0] as Pizza).Click += (s, e) =>
                     {
                         if (s is Pizza)
                         {
@@ -130,7 +162,7 @@ namespace NurgleEveszdeWpf
                 mail.From = new MailAddress(FROM_EMAIL);
                 mail.To.Add(bejelentkezettFelhasznalo.email);
                 mail.Subject = "Pizza rendelés elfogadva";
-                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar}Ft";
+                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar + tip}Ft";
                 mail.IsBodyHtml = false;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);

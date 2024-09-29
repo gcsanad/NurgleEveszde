@@ -45,8 +45,8 @@ namespace NurgleEveszdeWpf
             bitimg.BeginInit();
             bitimg.UriSource = new Uri(kep, UriKind.RelativeOrAbsolute);
             bitimg.EndInit();
-            this.Width = 50;
-            this.Height = 50;
+            this.Width = 100;
+            this.Height = 100;
             this.Background = new ImageBrush(bitimg);
             this.imageName = nev;
             this.ar = arMasolat;
