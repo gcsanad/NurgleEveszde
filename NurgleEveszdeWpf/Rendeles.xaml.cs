@@ -50,10 +50,15 @@ namespace NurgleEveszdeWpf
                 MySqlDataReader reader = lekerdezes.ExecuteReader();
                 while (reader.Read())
                 {
+                    
+
                     StackPanel stackPanelTarolo = new StackPanel();
                     Label labelNev = new Label();
                     Pizza pizza = new Pizza($"{reader.GetInt32(0)};{reader.GetString(1)};{reader.GetString(2)};{reader.GetInt32(3)};{reader.GetString(4)};{reader.GetBoolean(5)}".Split(";"));
                     labelNev.Content = pizza.Name;
+                    labelNev.Foreground = Brushes.White;
+                    labelNev.VerticalContentAlignment = VerticalAlignment.Center;
+                    labelNev.HorizontalContentAlignment = HorizontalAlignment.Center;
                     stackPanelTarolo.Orientation = Orientation.Vertical;
                     stackPanelTarolo.Children.Add(pizza);
                     stackPanelTarolo.Children.Add(labelNev);
@@ -72,10 +77,14 @@ namespace NurgleEveszdeWpf
             }
             btnFelvetel.Click += (s, e) =>
             {
+                BrushConverter bc = new BrushConverter();
+                Brush brush = (Brush)bc.ConvertFrom("#6EC207");
+
                 StackPanel stackpanelKosar = new StackPanel();
                 Label labelKoasr = new Label();
                 Pizza masolat = new Pizza(jelenlegiPizza.ImageName.ToString(), jelenlegiPizza.Ar, jelenlegiPizza.Available);
                 labelKoasr.Content = jelenlegiPizza.Name;
+                labelKoasr.Foreground = brush;
                 labelKoasr.VerticalContentAlignment = VerticalAlignment.Center;
                 labelKoasr.HorizontalContentAlignment = HorizontalAlignment.Center;
                 stackpanelKosar.Children.Add(masolat);
@@ -143,6 +152,8 @@ namespace NurgleEveszdeWpf
                     };
 
                 }
+                else
+                    (pizzak[i].Children[0] as Pizza).Click += (s, e) => MessageBox.Show("Ez a pizza jelenleg nem elérhető!");
             }
             MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             if (mainWindow != null)
@@ -177,6 +188,16 @@ namespace NurgleEveszdeWpf
             }
         }
 
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.ShowDialog();
+        }
     }
 }

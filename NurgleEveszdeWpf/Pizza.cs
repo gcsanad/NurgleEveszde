@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using System.Windows;
 
 namespace NurgleEveszdeWpf
 {
@@ -37,20 +38,27 @@ namespace NurgleEveszdeWpf
 
         public void Kepek(string nev, int arMasolat, bool available)
         {
-            string kep = "";
+            string kep = (available == true) ? @$".\\pizzaKepek\\{nev}" : @$".\\pizzaKepek\\not.jpg";
 
-            kep = (available == true) ? @$".\\pizzaKepek\\{nev}" : @$".\\pizzaKepek\\not.jpg";
+            BrushConverter bc = new BrushConverter();
+            Brush brush = (Brush)bc.ConvertFrom("#6EC207");
 
+            Image img = new Image();
             BitmapImage bitimg = new BitmapImage();
             bitimg.BeginInit();
             bitimg.UriSource = new Uri(kep, UriKind.RelativeOrAbsolute);
             bitimg.EndInit();
+            img.Source = bitimg;
             this.Width = 100;
             this.Height = 100;
             this.Background = new ImageBrush(bitimg);
+            this.BorderBrush = brush;
+            this.BorderThickness = new Thickness(2);
             this.imageName = nev;
             this.ar = arMasolat;
         }
+
+       
 
         public int Id => id;
         public new string Name => name;

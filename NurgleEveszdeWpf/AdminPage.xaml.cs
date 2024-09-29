@@ -76,8 +76,10 @@ namespace NurgleEveszdeWpf
 
             btnModositas.Click += (s, e) =>
             {
+                
                 if (dgAlapanyagok.SelectedIndex != -1 && dgAlapanyagok.SelectedItems.Count == 1 && dgAlapanyagok.SelectedItem is Ingredients)
                 {
+                    btnTorles.IsEnabled = false;
                     btnFelvetel.IsEnabled = false;
                     btnModosit.IsEnabled = true;
                     tbAlapanyagNev.Text = (dgAlapanyagok.SelectedItem as Ingredients).Name;
@@ -107,6 +109,7 @@ namespace NurgleEveszdeWpf
                     tbAlapanyagNev.Text = "";
                     tbAlapanyagCount.Text = "";
                     MessageBox.Show("Sikeres Módosítás");
+                    btnTorles.IsEnabled = true;
                 }
                 catch (Exception v)
                 {
