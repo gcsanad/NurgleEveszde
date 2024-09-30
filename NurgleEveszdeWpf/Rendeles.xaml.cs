@@ -83,7 +83,7 @@ namespace NurgleEveszdeWpf
 
                 StackPanel stackpanelKosar = new StackPanel();
                 Label labelKoasr = new Label();
-                Pizza masolat = new Pizza(jelenlegiPizza.ImageName.ToString(), jelenlegiPizza.Ar, jelenlegiPizza.Available);
+                Pizza masolat = new Pizza(jelenlegiPizza.ImageName.ToString(), jelenlegiPizza.Ar, jelenlegiPizza.Available, jelenlegiPizza.Name);
                 labelKoasr.Content = jelenlegiPizza.Name;
                 labelKoasr.Foreground = brush;
                 labelKoasr.VerticalContentAlignment = VerticalAlignment.Center;
@@ -122,9 +122,10 @@ namespace NurgleEveszdeWpf
                     MessageBox.Show("Hát, a semmit nem szállítjuk ki, kösz.");
                 else
                 {
+                    
                     var Result = MessageBox.Show($"Végösszeg: {ar} + tip: {tip}\nBefejezi a rendelést?", "Rendelés", MessageBoxButton.YesNo, MessageBoxImage.Information);
                     if (Result == MessageBoxResult.Yes)
-                        RendelesJovahagyvaEmail();
+                        RendelesJovahagyvaEmail(kosar);
                     else
                         return;
                 }
@@ -166,16 +167,21 @@ namespace NurgleEveszdeWpf
             
             
         }
-        public static void RendelesJovahagyvaEmail()
+        public static void RendelesJovahagyvaEmail(ObservableCollection<StackPanel> kosar)
         {
-
+            string pizzakAKosarban = "";
+            foreach (var item in kosar)
+            {
+                string cucc = (item.Children[0] as Pizza).Name;
+                pizzakAKosarban += "\n\t-"+cucc;
+            }
             try
             {
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(FROM_EMAIL);
                 mail.To.Add(bejelentkezettFelhasznalo.email);
                 mail.Subject = "Pizza rendelés elfogadva";
-                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar + tip}Ft";
+                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar + tip}Ft\nRendelt pizzák: {pizzakAKosarban}";
                 mail.IsBodyHtml = false;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);

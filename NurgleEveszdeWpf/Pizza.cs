@@ -30,9 +30,9 @@ namespace NurgleEveszdeWpf
             Kepek(tomb[4], ar, available);
         }
 
-        public Pizza(string nev, int arMasolat, bool available)
+        public Pizza(string nev, int arMasolat, bool available, string pizzaNev)
         {
-
+            this.name= pizzaNev;
             Kepek(nev, arMasolat, available);
         }
 
