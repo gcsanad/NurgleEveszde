@@ -39,6 +39,7 @@ namespace NurgleEveszdeWpf
             InitializeComponent();
             ObservableCollection<StackPanel> kosar = [];
             ObservableCollection<StackPanel> pizzak = [];
+            btnFelvetel.IsEnabled = false;
             lbKosar.ItemsSource = kosar;
             try
             {
@@ -148,6 +149,7 @@ namespace NurgleEveszdeWpf
                             bitimg.EndInit();
                             rtKepPizza.Fill = new ImageBrush(bitimg);
                             jelenlegiPizza = (s as Pizza);
+                            btnFelvetel.IsEnabled = true;
                         }
                     };
 
@@ -198,6 +200,11 @@ namespace NurgleEveszdeWpf
             MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
