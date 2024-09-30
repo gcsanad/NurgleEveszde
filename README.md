@@ -133,4 +133,4 @@ o	A bejelentkezett felhasználó adatai, mint például a telefonszám és a sz�
 <b>Barizs Márton Dániel:</b> Frontend és a hozzá tartozó backend<br/>
 <b>Beke Tamás:</b> Backend(Pizza osztály, AdminPage, Rendelés), Adatbázis<br/>
 <b>Gajdos Csanád:</b> Backend(Bejelentkezés, regisztráció, User osztály, email küldés), anyaggyűjtés, dokumentáció<br/>
-<b>Hernádi Balázs:</b> Adatbázis, AdminPage kezdetleges frontend(full reworköltük)
+<b>Hernádi Balázs:</b> Adatbázis, AdminPage kezdetleges frontend
