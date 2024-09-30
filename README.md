@@ -1,10 +1,9 @@
-Négymuskétás
-Pizzéria projekt dokumentáció
+<h1 align="center">Négymuskétás<br/>Pizzéria projekt dokumentáció</h1>
 
 
-MainWindow(bejelentkezés):
+## MainWindow(bejelentkezés):
 
-Tagváltozók és tulajdonságok:
+### Tagváltozók és tulajdonságok:
 •	connectionString: Az adatbázis kapcsolat stringje, amely tartalmazza a szerver elérhetőségét, a portszámot, a felhasználónevet, a jelszót és az adatbázis nevét.
 
 •	connection: MySQL adatbázis kapcsolat objektuma, amely lehetővé teszi a lekérdezések végrehajtását.
@@ -12,7 +11,7 @@ Tagváltozók és tulajdonságok:
 •	users: Felhasználókat tartalmazó lista, amelybe az adatbázisból lekért felhasználói adatok kerülnek.
 
 •	Bejelentkezett: A bejelentkezett felhasználót reprezentáló tulajdonság, amely a sikeres bejelentkezés után kerül beállításra.
-Fő metódusok:
+### Fő metódusok:
 loadUsers()
 Ez a metódus az adatbázisból lekéri a felhasználói adatokat, és hozzáadja azokat a users listához.
 1.	Adatbázis kapcsolat: A MySQL adatbázis csatlakozását végzi el a connectionString alapján.
@@ -36,8 +35,8 @@ Ez a metódus a felület egy határának kattintására engedélyezi az ablak h�
 
 
 
-RegistrationWindow(regisztáció):
-Tagváltozók és tulajdonságok:
+## RegistrationWindow(regisztáció):
+### Tagváltozók és tulajdonságok:
 •	connectionString: Az adatbázis kapcsolat stringje, amely tartalmazza az adatbázis szerverének IP címét, portszámát, felhasználónevet, jelszót és az adatbázis nevét.
 •	connection: MySQL adatbázis kapcsolat objektum, amely a lekérdezések végrehajtásáért felel.
 •	users: Felhasználók listája, amely tartalmazza az adatbázisból lekért felhasználói adatokat.
@@ -45,7 +44,7 @@ Tagváltozók és tulajdonságok:
 •	hibaÜzenet: A hibaüzenetek tárolására szolgál, amelyeket a felhasználónak jelenít meg.
 •	nev, email, cim, jelszo, telefon, status: A felhasználó által megadott adatok tárolására szolgáló változók.
 
-Fő metódusok:
+### Fő metódusok:
 checkRegistration()
 Ez a metódus felelős a regisztrációs adatok ellenőrzéséért és az esetleges hibák megjelenítéséért.
 1.	Adatok lekérése: Az űrlapon megadott felhasználói adatok (név, email, cím, jelszó, telefon) lekérése.
@@ -70,9 +69,9 @@ Ez az eseménykezelő felel a regisztrációs gomb (btnRegister) kattintására 
 3.	A főablak megnyitása: Sikeres regisztráció után megnyitja a fő ablakot, és bezárja a regisztrációs ablakot.
 Button_Click()
 Ez az eseménykezelő a "Vissza" gomb (Button) kattintására lép életbe, amely bezárja a regisztrációs ablakot, és visszaviszi a felhasználót a főablakba.
-Adatbázis struktúra:
+### Adatbázis struktúra:
 •	A felhasználói adatok a accounts táblába kerülnek mentésre. A tábla mezői: Account_Id, Username, Password, Mobil, Email, Address, Status, Registration_Date.
-Validációs szabályok:
+### Validációs szabályok:
 1.	Felhasználónév: Nem lehet üres, és nem lehet már létező felhasználónév.
 2.	Jelszó: Legalább 8 karakter hosszú kell, hogy legyen.
 3.	Telefonszám: Legalább 12 karakter hosszú, és + jellel kell kezdődnie.
@@ -80,8 +79,8 @@ Validációs szabályok:
 5.	Cím: Nem lehet üres.
 
 
-AdminPage:
-Fő funkciók:
+## AdminPage:
+### Fő funkciók:
 1.	Alapanyagok betöltése az adatbázisból:
 o	A Beolvasas nevű lambda-függvény betölti az alapanyagokat (ingredients) a MySQL adatbázisból. Az eredményt egy ObservableCollection tárolja, amely frissíti a felhasználói felületet (adatkötés használatával) a dgAlapanyagok DataGrid-ben.
 2.	Alapanyag módosítása:
@@ -93,11 +92,11 @@ o	A btnTorles eseménykezelő törli a kiválasztott alapanyagot. Az SQL DELETE 
 5.	TextBox és DataGrid események kezelése:
 o	Van egy korlátozás az alapanyag nevének hosszára a tbAlapanyagNev TextBox-ban (maximum 10 sor).
 o	A NumberValidationTextBox biztosítja, hogy a mennyiséghez csak numerikus értéket lehessen bevinni.
-Kiválasztás és állapotkezelés:
+### Kiválasztás és állapotkezelés:
 •	A kiválasztott alapanyagot a kivalasztottAlapanyag nevű változó tárolja, amely az adott alapanyagra mutat. A kiválasztott sor módosítása, törlése ezzel a változóval történik.
-Hibakezelés:
+### Hibakezelés:
 •	Minden adatbázis művelet try-catch blokkokkal van körülvéve, hogy a felhasználót értesíthesse, ha valami hiba történik az adatbázis műveletek során (pl. nem sikerül a csatlakozás vagy a lekérdezés).
-Felhasználói felület események:
+### Felhasználói felület események:
 •	DragMove: Az ablak mozgatását biztosítja, ha a felhasználó a keretet húzza.
 •	Logout: A kijelentkezési esemény lezárja az AdminPage-et és megnyitja a fő ablakot (MainWindow).
 
@@ -107,8 +106,8 @@ Felhasználói felület események:
 
 
 
-Rendelés
-A főbb funkciók és folyamatok:
+## Rendelés
+### A főbb funkciók és folyamatok:
 1.	Adatbázis kapcsolat és pizzák betöltése: A program MySQL kapcsolatot hoz létre az adatbázissal, majd lekéri a pizzák adatait a foods táblából. Minden pizza adatait egy Pizza objektumba helyezi, amelyet a felhasználói felületen listáz.
 2.	Pizzák kiválasztása és kosár kezelése:
 o	A felhasználók kiválaszthatják a rendelkezésre álló pizzákat, amelyeket a kosárba helyeznek.
@@ -125,13 +124,13 @@ o	A program a rendelés jóváhagyása után egy visszaigazoló emailt küld a f
 o	Az emailküldést az SMTP protokoll segítségével hajtja végre a Gmail szerverén keresztül.
 6.	Felhasználói adatok előtöltése:
 o	A bejelentkezett felhasználó adatai, mint például a telefonszám és a szállítási cím, automatikusan előtöltődnek a megfelelő mezőkbe, ezzel is megkönnyítve a rendelés leadását.
-Kód főbb pontjai:
-•	MySQL kapcsolat: Az alkalmazás MySQL adatbázis kezelésére a MySqlConnection objektumot használja, amelyhez egy string formátumú kapcsolatstruktúrában adja meg az adatbázis elérési adatait.
-•	Pizzák megjelenítése: A pizzák adatai a lekérdezés után külön-külön megjelennek a felhasználói felületen, és ezek közül a felhasználók szabadon választhatnak.
-•	Kosár kezelés: Az ObservableCollection-t használja a kosárban lévő pizzák dinamikus megjelenítéséhez. A felhasználó könnyen hozzáadhat vagy eltávolíthat pizzákat.
+### Kód főbb pontjai:
+•	MySQL kapcsolat: Az alkalmazás MySQL adatbázis kezelésére a MySqlConnection objektumot használja, amelyhez egy string formátumú kapcsolatstruktúrában adja meg az adatbázis elérési adatait.<br/>
+•	Pizzák megjelenítése: A pizzák adatai a lekérdezés után külön-külön megjelennek a felhasználói felületen, és ezek közül a felhasználók szabadon választhatnak.<br/>
+•	Kosár kezelés: Az ObservableCollection-t használja a kosárban lévő pizzák dinamikus megjelenítéséhez. A felhasználó könnyen hozzáadhat vagy eltávolíthat pizzákat.<br/>
 •	SMTP email küldés: Az emailküldéshez az SMTP protokollt használja, ahol a rendelés adatai, például a felhasználó neve és címe, szerepelnek.
-Feladatkörök:
-Barizs Márton Dániel: Frontend és a hozzá tartozó backend
-Beke Tamás: Backend(Pizza osztály, AdminPage, Rendelés), Adatbázis
-Gajdos Csanád: Backend(Bejelentkezés, regisztráció, User osztály, email küldés), 				 anyaggyűjtés, dokumentáció
+## Feladatkörök:
+Barizs Márton Dániel: Frontend és a hozzá tartozó backend<br/>
+Beke Tamás: Backend(Pizza osztály, AdminPage, Rendelés), Adatbázis<br/>
+Gajdos Csanád: Backend(Bejelentkezés, regisztráció, User osztály, email küldés), anyaggyűjtés, dokumentáció<br/>
 Hernádi Balázs: Adatbázis, AdminPage kezdetleges frontend(full reworköltük)
