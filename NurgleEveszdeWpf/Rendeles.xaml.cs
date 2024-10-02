@@ -172,7 +172,7 @@ namespace NurgleEveszdeWpf
             string pizzakAKosarban = "";
             foreach (var item in kosar)
             {
-                string cucc = (item.Children[0] as Pizza).Name;
+                string cucc = $"{(item.Children[0] as Pizza).Name} - {(item.Children[0] as Pizza).Ar}Ft";
                 pizzakAKosarban += "\n\t-"+cucc;
             }
             try
@@ -181,7 +181,7 @@ namespace NurgleEveszdeWpf
                 mail.From = new MailAddress(FROM_EMAIL);
                 mail.To.Add(bejelentkezettFelhasznalo.email);
                 mail.Subject = "Pizza rendelés elfogadva";
-                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelés összege: {ar + tip}Ft\nRendelt pizzák: {pizzakAKosarban}";
+                mail.Body = $"Köszönjük a rendelését, máris elkezdtük készíteni a pizzáját!\nFelhasználó neve: {bejelentkezettFelhasznalo.username}\nSzállítási cím: {bejelentkezettFelhasznalo.address}\nElérhetősége: {bejelentkezettFelhasznalo.mobil}\nRendelt pizzák: {pizzakAKosarban}\n\nRendelés összege: {ar + tip}Ft";
                 mail.IsBodyHtml = false;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
